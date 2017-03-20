@@ -1,0 +1,110 @@
+h1{
+    color: black;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+.box1:hover{
+    background-color: orange;
+}
+
+.box1{
+    width: 341px;
+    height: 50px;
+    background-color: white;
+    border-top: 0px;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    padding: 30px 0px;
+
+}
+
+.box2:hover{
+    background-color: orange;
+}
+
+.box2{
+    width: 341px;
+    height: 70px;
+    background-color: white;
+    border-top: 0px;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    padding: 30px 0px;
+}
+
+.box3:hover{
+    background-color: orange;
+}
+
+.box3{
+    width: 341px;
+    height: 40px;
+    background-color: white;
+    border-top: 0px;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    padding: 20px 0px;
+}
+
+.box4:hover{
+    background-color: orange;
+}
+
+.box4{
+    width: 341px;
+    height: 40px;
+    background-color: white;
+    border-top: 0px;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    padding: 20px 0px;
+}
+
+.box5:hover{
+    background-color: orange;
+}
+
+.box5{
+    width: 341px;
+    height: 50px;
+    background-color: white;
+    border-top: 0px;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    padding: 40px 0px;
+}
+
+.box6:hover{
+    background-color: orange;
+}
+
+.box6{
+    width: 341px;
+    height: 50px;
+    background-color: white;
+    border-top: 0px;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    padding: 40px 0px;
+}
+
+.box7:hover{
+    background-color: orange;
+}
+
+.box7{
+    width: 341px;
+    height: 50px;
+    background-color: white;
+    border-top: 0px;
+    border-right: 3px solid black;
+    border-left: 3px solid black;
+    padding: 40px 0px;
+}

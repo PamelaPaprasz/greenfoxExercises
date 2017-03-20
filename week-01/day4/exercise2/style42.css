@@ -1,0 +1,42 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: arial;
+  font-size: 36px;
+  color: white;
+}
+
+.box{
+    width: 348px;
+    border: solid 16px #4285f4;
+    margin: 10px;
+}
+
+.box1{
+    width: 350px;
+    height: 133px;
+    background-color: #e67676;
+    line-height: 130px;
+}
+
+.box2{
+    width: 350px;
+    height: 133px;
+    background-color: #f2f062;
+    line-height: 130px;
+}
+
+.box3{
+    width: 350px;
+    height: 133px;
+    background-color: #a9e6e6;
+    line-height: 130px;
+}
+
+.box4{
+    width: 350px;
+    height: 133px;
+    background-color: #7692e4;
+    line-height: 130px;
+}

@@ -1,0 +1,36 @@
+
+h1{
+    color: blue;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+h2{
+    color: #f3d461;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+p{
+    padding-bottom: 10px;
+}
+
+ul{
+    color: black;
+}
+
+.blue-meat{
+    color: blue;
+}
+
+.blue-fruit{
+    color: blue;
+}
+
+.red-apple{
+    color: red;
+}
+
+.blue-veg{
+    color: blue;
+}

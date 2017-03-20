@@ -1,0 +1,16 @@
+p{
+    color: blue;
+    background-color: yellow;
+    max-width: 200px;
+}
+
+.container div{
+    border: 1px solid green;
+    max-width: 200px;
+    font-weight: bold;
+}
+
+.asteroid-b329-big{
+    color: blue;
+    font-weight: bold;
+}

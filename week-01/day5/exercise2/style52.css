@@ -1,0 +1,40 @@
+
+
+body{
+    font-size: 16px;
+    color: white;
+    font-family: courier sans-serif;
+}
+
+.box1 {
+  background: url(duck.png) no-repeat left center;
+  background-color: #ff6347;
+  background-size: 30%;
+  height: 60px;
+  width: 264px;
+  padding: 16px;
+  padding-top: 20px;
+  margin:10px;
+}
+
+.box2 {
+  background: url(duck.png) no-repeat center;
+  background-color: #643579;
+  background-size: 50%;
+  height: 110px;
+  width: 264px;
+  padding: 16px;
+  padding-top: 20px;
+  margin:10px;
+}
+
+.box3 {
+  background: url(duck.png) no-repeat bottom right;
+  background-color: #808080;
+  background-size: 25%;
+  height: 275px;
+  width: 264px;
+  padding: 16px;
+  padding-top: 30px;
+  margin:10px;
+}

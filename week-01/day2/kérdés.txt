@@ -1,0 +1,8 @@
+miért szûnik meg a középrerendezés az oldalamon, ha ebbe a linkbe <link rel="stylesheet" href="style.css"> belerakom a type attributumot type="text/css"?
+
+miért mondja azt a 10. html-es tutoriálban a srác, hogy a target attribútom után a blank elé kell egy underscore? (én úgy láttam, hogy nekünknem kellett ilyen)
+
+<table class="image">
+            <caption align="bottom">Erika Hall in San Francisco, 2013 (Photo courtesy of Jeffrey Zeldman)</caption>
+            <tr><td><img id="no" src="no.jpeg" align="left" width="50%" /></td></tr>
+        </table>
