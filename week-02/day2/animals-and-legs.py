@@ -1,11 +1,11 @@
-chicken_number = 100
+print("How many chickens you have?")
 
-pig_number = 100
+user_input1 = int(input())
 
-chicken_legs = 100 * 2
+print("How many pigs you have?")
 
-pig_legs = 100 * 4
+user_input2 = int(input())
 
-all_legs = chicken_legs + pig_legs
+legs = user_input1 * 2 + user_input2 * 4
 
-print(all_legs)
+print("Your animals have " + str(legs), " legs in all. ")
