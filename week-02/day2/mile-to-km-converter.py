@@ -1,7 +1,9 @@
-szeged_budapest = 150
+print("How many kilometers is Szeged from Pest?")
+
+user_input = int(input())
 
 conv_fac = 0.621371
 
-miles =  szeged_budapest * conv_fac
+miles =  user_input * conv_fac
 
-print(szeged_budapest, "kilometers is equal to", miles ,"miles.")
+print("Szeged is " + str(miles) + " miles away from Pest.")
