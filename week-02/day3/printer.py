@@ -4,6 +4,6 @@
 
 def printer(*a):
 
-    print(*x)
+    print(a)
 
 printer(3, 7, 8)
