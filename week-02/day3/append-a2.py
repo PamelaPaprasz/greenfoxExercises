@@ -4,5 +4,5 @@
 
 nimals = ["kuty", "macs", "cic"]
 string = 'a'
-animals = [x + string for x in nimals]
+animals = [element + string for element in nimals]
 print(animals)
