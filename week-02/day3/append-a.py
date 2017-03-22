@@ -16,15 +16,15 @@ appendA(am)
 
 a = "macsk"
 
-def real_append_fuction(a):
+def real_append_fuction(ay):
 
-    cuted_cat = []
-    for letter in a:
-        cuted_cat.append(letter)
-    print(cuted_cat)
-    cuted_cat.append("a")
-    print(cuted_cat)
-    macska = ''.join(cuted_cat)
+    cut_cat = []
+    for letter in ay:
+        cut_cat.append(letter)
+    print(cut_cat)
+    cut_cat.append("a")
+    print(cut_cat)
+    macska = ''.join(cut_cat)
     print(macska)
 
 real_append_fuction(a)
