@@ -24,8 +24,11 @@ if num_girls == num_boyz and num_girls + num_boyz > 20:
 elif num_girls > num_boyz and num_girls + num_boyz > 20:
     print("Quite cool party!")
 
-elif num_girls + num_boyz < 20:
+elif num_girls + num_boyz < 20 and num_girls != 0:
     print("Average party...")
-    
-elif num_girls == 0:
-    print("Sausage party")
+
+elif num_girls == 0 and num_boyz != 0:
+    print("Sausage party!")
+
+elif (num_girls + num_boyz) == 0:
+    print("We are not exsist!")
