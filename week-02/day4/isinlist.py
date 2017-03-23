@@ -7,14 +7,13 @@ listOfNumbers = [2, 4, 6, 8, 10, 12, 14, 16]
 
 a = [4,8,12,16]
 
-def check_num(listOfNumbers):
+def check_num(lists, in_or_not):
 
-    for number in a:
-        if number not in listOfNumbers:
+    for number in in_or_not:
+        if number not in lists:
             return False
 
     return True
 
-check_num(listOfNumbers)
 
-print(check_num(listOfNumbers))
+print(check_num(listOfNumbers, a))
