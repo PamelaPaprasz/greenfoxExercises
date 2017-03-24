@@ -1,6 +1,3 @@
-watchlist = []
-
-security_alchol_loot = 0
 
 queue = [
 	{ 'name': 'Amanda', 'alcohol': 10, 'guns': 1 },
@@ -12,29 +9,46 @@ queue = [
 	{ 'name': 'Joerg', 'alcohol': 20, 'guns': 0 }
 ]
 
-def safego(ok):
+
+def safe_go(people):
+
+    for elements in people:
+
+        if elements['alcohol'] < 1 and elements['guns'] < 1:
+            print(elements['name'])
+
+safe_go(queue)
+
+
+
+
+def gun_plus(people):
 
     watchlist = []
 
+    for elements in people:
+
+        if elements['guns'] > 0:
+            watchlist.append(elements['name'])
+    return watchlist
+
+ready_watchlist = gun_plus(queue)
+print(ready_watchlist)
+
+
+def with_alcohol(people):
+
     security_alchol_loot = 0
 
-    for elements in ok:
+    for elements in people:
 
-            if elements['alcohol'] < 1 and elements['guns'] < 1:
-                print(elements['name'])
-            elif elements['guns'] > 0:
-                watchlist.append(elements['name'])
+        if elements['alcohol'] > 0:
+            security_alchol_loot += elements['alcohol']
 
-            elif elements['alcohol'] > 0:
-                security_alchol_loot += elements['alcohol']
+    return security_alchol_loot
 
-                return(watchlist, security_alchol_loot)
-
-
-safego(queue)
-print((watchlist, security_alchol_loot))
-
-
+cleaned_people = with_alcohol(queue)
+print(cleaned_people)
 
 # Queue of festivalgoers at entry
 # no. of alcohol units
