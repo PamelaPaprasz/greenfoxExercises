@@ -1,10 +1,18 @@
 # Join the two lists by matching one girl with one boy in the order list
 # Exepected output: ["Eve", "Joe", "Ashley", "Fred"...]
 
+#ujra ;s majd v
+
 girls = ["Eve","Ashley","Bözsi","Kat","Jane"]
 boys = ["Joe","Fred","Béla","Todd","Neef","Jeff"]
-order = [girls[0], boys[0], girls[1], boys[1], girls[2], boys[2], girls[3], boys[3], girls[4], boys[4] ]
 
-order = ' , '.join(order)
+merged_list = []
+turn_intiger = len(girls)
 
-print(order)
+for i in range(turn_intiger):
+    merged_list += [girls[i]]
+    merged_list += [boys[i]]
+    
+merged_list.append(boys[5])
+
+print(merged_list)
