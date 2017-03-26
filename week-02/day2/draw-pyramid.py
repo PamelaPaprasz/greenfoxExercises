@@ -9,8 +9,9 @@
 #
 # The pyramid should have as many lines as the number was
 
-number = str(input('Give me a number please: '))
 
-for e in range(0, 8):
+number = int(input('Give me a number please: '))
+
+for e in range(number):
     if e > 0 and e %2 == 1:
-        print(' ', e * number)
+        print((number - e) * ' ', (e * '*'))

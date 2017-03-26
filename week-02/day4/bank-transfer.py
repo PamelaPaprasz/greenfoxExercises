@@ -14,6 +14,16 @@ dataname(accounts)
 
 # Create function that returns the name and balance of cash on an account
 
+def transfer(account_change):
+
+    x = 0
+
+    for elements in account_change:
+        x = elements[0('balance')]
+        x = elements[1('balance')] 
+        print(elements['balance'])
+transfer(accounts)
+
 # Create function that transfers an balance of cash from one account to another
 # it should have three parameters:
 #  - from account_number

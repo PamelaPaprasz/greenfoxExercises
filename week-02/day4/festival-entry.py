@@ -21,7 +21,6 @@ safe_go(queue)
 
 
 
-
 def gun_plus(people):
 
     watchlist = []
