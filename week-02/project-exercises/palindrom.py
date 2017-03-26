@@ -1,15 +1,15 @@
+def palindrome_creator(word):
+    if len(word) > 1:
+        word_reversed = word[::-1]
+        word_reversed = word_reversed[1:]
+        palindrome = word + word_reversed
+    else:
+        return False
+    return palindrome
 
 user_word = input('Give me a word that I can palindromize for you: ')
-
-def palindrom_creator(word):
-    user_word = word
-    if len(user_word) > 1:
-        user_word2 = user_word[::-1]
-        user_word2 = user_word2[1:]
-        user_word += user_word2
-    else:
-        print('I can not reverse a letter, sorry, your choice was not long enough!')
-
-    return user_word
-
-print(palindrom_creator(user_word))
+result = palindrome_creator(user_word)
+if(result!=False):
+    print (result)
+else:
+    print ('Sorry!')
