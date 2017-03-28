@@ -2,8 +2,13 @@
 
 def decrypt(file_name):
 
-    text = open(file_name).read()
-    print(text[::-1])
-    return text[::-1]
-    
-decrypt('reversed-lines.txt')
+    text = open(file_name).readlines()
+
+    reversed_version = ''
+
+    for i in text:
+        i = i[::-1]
+        reversed_version += i
+    return reversed_version
+
+print(decrypt('reversed-lines.txt'))
