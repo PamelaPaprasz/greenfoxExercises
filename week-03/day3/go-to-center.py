@@ -5,7 +5,7 @@ root = Tk()
 canvas = Canvas(root, width='300', height='300')
 canvas.pack()
 
-def tree_lines_to_center(x, y):
+def lines_to_center(x, y):
     line = canvas.create_line(x, y, 150, 150)
 tree_lines_to_center(0, 0)
 tree_lines_to_center(0, 40)
