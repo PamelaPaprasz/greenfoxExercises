@@ -17,14 +17,3 @@ for i in range(0, 151, 10):
 
 
 root.mainloop()
-
-'''
-canvas.create_line(150, 150, 300, 150)
-canvas.create_line(150, 160, 290, 150)
-canvas.create_line(150, 170, 280, 150)
-canvas.create_line(150, 190, 260, 150)
-canvas.create_line(150, 250, 200, 150)
-canvas.create_line(150, 280, 170, 150)
-canvas.create_line(150, 290, 160, 150)
-canvas.create_line(150, 300, 150, 150)
-'''
