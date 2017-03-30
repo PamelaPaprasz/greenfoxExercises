@@ -6,7 +6,7 @@ canvas = Canvas(root, width='600', height='600')
 canvas.pack()
 
 def first_square(x, y, size):
-    canvas.create_rectangle(x, y, size + x, size + y, fill = 'yellow', outline = 'black')
+    canvas.create_rectangle(x, y, size + x, size + y, fill = 'yellow')
 
 def square_in_square(x, y, size):
     first_square(x, y, size)
