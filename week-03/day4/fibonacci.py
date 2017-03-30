@@ -6,12 +6,7 @@
 # fibonacci number, with n=0 representing the start of the sequence.
 
 def fibonacci(number):
-    '''
-    if number == 0:
-        return 0
-    elif number == 1:
-        return 1
-    '''
+
     print(number)
     if number == 0 or number == 1:
         return number
@@ -19,3 +14,7 @@ def fibonacci(number):
         return (fibonacci(number-2) + fibonacci(number-1))
 
 print(fibonacci(5))
+
+
+for i in range(16):
+    print(fibonacci(i))
