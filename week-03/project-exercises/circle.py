@@ -1,4 +1,5 @@
 from tkinter import *
+import time
 
 root = Tk()
 
@@ -10,6 +11,8 @@ def first_circle(x, y, size):
 
 def circle_in_circle(x, y, size):
     first_circle(x, y, size)
+    time.sleep(0.1)
+    canvas.update()
 
     if size > 5:
         circle_in_circle(x + size*1/4, y + 1/2 * size, size/2)
