@@ -7,11 +7,11 @@ canvas = Canvas(root, width='800', height='800')
 canvas.pack()
 
 def first_circle(x, y, size):
-    canvas.create_oval(x, y, size + x, size + y, fill = '')
+    canvas.create_oval(x, y, size + x, size + y, fill = 'yellow', outline = 'blue')
 
 def circle_in_circle(x, y, size):
     first_circle(x, y, size)
-    time.sleep(0.1)
+    time.sleep(0.001)
     canvas.update()
 
     if size > 5:
