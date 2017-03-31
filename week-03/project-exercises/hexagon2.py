@@ -1,4 +1,5 @@
 from tkinter import *
+import time
 
 root = Tk()
 
@@ -12,18 +13,15 @@ def first_square(x, y, size):
 
 def hexagon_in_hexagon(x, y, size):
     first_square(x, y, size)
+    time.sleep(0.1)
+    canvas.update()
 
     if size > 10:
         hexagon_in_hexagon(x + size*1/6, y - size*1/3, size*1/3)
-
         hexagon_in_hexagon(x, y, size*1/3)
-
         hexagon_in_hexagon(x + size*1/6, y + size*1/3, size*1/3)
-
         hexagon_in_hexagon(x + size*1/2, y + size*1/3, size*1/3)
-
         hexagon_in_hexagon(x + size*1/2, y - size*1/3, size*1/3)
-
         hexagon_in_hexagon(x + size*1/1.5, y + size*1/120, size*1/3)
 
 hexagon_in_hexagon(80, 300, 400)
