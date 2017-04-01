@@ -5,7 +5,5 @@
 
 e = 'In a dishwasher far far away'
 
-words = e.split()
-words[2] = 'galaxy'
-e = ' '.join(words)
+e = e.replace('dishwasher', 'galaxy')
 print(e)
