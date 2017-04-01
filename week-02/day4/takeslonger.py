@@ -3,10 +3,6 @@
 
 quote = "Hofstadter's Law: It you expect, even when you take into account Hofstadter's Law."
 
-quote = ["Hofstadter's Law: It", "" "you expect, even when you take into account Hofstadter's Law."]
-
-(quote[1]) = "always takes longer than"
-
-quote = ' '.join(quote)
+quote = quote[:20] + "always takes longer than" + quote[21:]
 
 print(quote)
