@@ -13,10 +13,10 @@ def first_square(x, y, size):
 
 def hexagon_in_hexagon(x, y, size):
     first_square(x, y, size)
-    time.sleep(0.1)
+    time.sleep(0.0001)
     canvas.update()
 
-    if size > 20:
+    if size > 1:
         hexagon_in_hexagon(x + size*1/8, y - size*1/4, size*1/2)
         hexagon_in_hexagon(x + size*1/2, y, size*1/2)
         hexagon_in_hexagon(x + size*1/8, y + size*1/4, size*1/2)
