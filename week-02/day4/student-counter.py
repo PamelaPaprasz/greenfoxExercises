@@ -8,7 +8,6 @@ students = [
         {'name': 'Gerzson', 'age': 10, 'candies': 1},
 ]
 
-
 def ins_dict(student_attribut):
 
     all_candy = 0
@@ -18,8 +17,6 @@ def ins_dict(student_attribut):
     print(all_candy)
 
 ins_dict(students)
-
-
 
 # create a function that takes a list of students and prints:
 # - how many candies are owned by students
@@ -31,8 +28,7 @@ def candies(candy_age):
             sum_age += elements['age']
     return(sum_age)
 
-sumed_up_ages = candies(students)
-print(sumed_up_ages)
+print(candies(students))
 
 # create a function that takes a list of students and prints:
 # - Sum of the age of people who have lass than 5 candies
