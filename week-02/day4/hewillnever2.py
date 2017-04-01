@@ -17,9 +17,10 @@ hashmap = {
 }
 
 for i in notSoCrypticMessage:
-    for k, v in hashmap.items(): #put the .items method after the thing you wanna turn to be a list so you will be able to go through it like it was a list
-        if k == i:
-            out += v
-
+    out += hashmap[i]
+    
+'''
+    hashmap[i] works because all the elements in the notSoCrypticMessage variable (that is a list) are included in the hashmap dictionary and we can not loop through the hashmap dictionary because the elements in a dictionary have no index values like a list has but we can find if there is a match with the actual inth elements and if is we add it to the out variable
+'''
 
 print(out)
