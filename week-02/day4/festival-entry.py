@@ -1,53 +1,32 @@
-
 queue = [
-	{ 'name': 'Amanda', 'alcohol': 10, 'guns': 1 },
-	{ 'name': 'Tibi', 'alcohol': 0, 'guns': 0 },
-	{ 'name': 'Dolores', 'alcohol': 0, 'guns': 1 },
-	{ 'name': 'Wade', 'alcohol': 1, 'guns': 1 },
-	{ 'name': 'Anna', 'alcohol': 10, 'guns': 0 },
-	{ 'name': 'Rob', 'alcohol': 2, 'guns': 0 },
-	{ 'name': 'Joerg', 'alcohol': 20, 'guns': 0 }
+{ 'name': 'Amanda', 'alcohol': 10, 'guns': 1 },
+{ 'name': 'Tibi', 'alcohol': 0, 'guns': 0 },
+{ 'name': 'Dolores', 'alcohol': 0, 'guns': 1 },
+{ 'name': 'Wade', 'alcohol': 1, 'guns': 1 },
+{ 'name': 'Anna', 'alcohol': 10, 'guns': 0 },
+{ 'name': 'Rob', 'alcohol': 2, 'guns': 0 },
+{ 'name': 'Joerg', 'alcohol': 20, 'guns': 0 }
 ]
-
 
 def safe_go(people):
 
-    for elements in people:
+	watchlist = []
+	security_alcohol_loot = 0
+	new_queue = []
 
-        if elements['alcohol'] < 1 and elements['guns'] < 1:
-            print(elements['name'])
+	for element in people:
+		if element['guns'] > 0:
+			watchlist.append(element['name'])
+		elif element['alcohol'] > 0:
+				security_alcohol_loot += element['alcohol']
+				element['alcohol'] = 0
+		if element['alcohol'] == 0 and element['guns'] == 0:
+			new_queue.append(element)
 
-safe_go(queue)
-
-
-
-def gun_plus(people):
-
-    watchlist = []
-
-    for elements in people:
-
-        if elements['guns'] > 0:
-            watchlist.append(elements['name'])
-    return watchlist
-
-ready_watchlist = gun_plus(queue)
-print(ready_watchlist)
+	return watchlist, security_alcohol_loot, new_queue
 
 
-def with_alcohol(people):
-
-    security_alchol_loot = 0
-
-    for elements in people:
-
-        if elements['alcohol'] > 0:
-            security_alchol_loot += elements['alcohol']
-
-    return security_alchol_loot
-
-cleaned_people = with_alcohol(queue)
-print(cleaned_people)
+print(safe_go(queue))
 
 # Queue of festivalgoers at entry
 # no. of alcohol units
@@ -57,3 +36,4 @@ print(cleaned_people)
 
 # If guns are found, remove them and put them on the watchlist (only the names)
 # If alcohol is found confiscate it (set it to zero and add it to security_alchol_loot) and let them enter the festival
+'''
