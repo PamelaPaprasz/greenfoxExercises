@@ -21,16 +21,14 @@ def transfer(faccount, taccount, transfer):
 	tobalance= 0
 
 	for i in accounts:
-		if i == faccount:
+		if i['account_number'] == faccount:
 			frombalance += i['balance'] - transfer
-
-	for e in accounts:
-		if e == taccount:
-			tobalance += e['balance'] + transfer
+		elif i ['account_number'] == taccount:
+			tobalance += i['balance'] + transfer
 
 	return frombalance, tobalance
 
-print(transfer(accounts[0], accounts[1], 8973520))
+print(transfer(11234543, 43546731, 8973520))
 
 # Create function that transfers an balance of cash from one account to another
 # it should have three parameters:
