@@ -22,16 +22,13 @@ def transfer(faccount, taccount, transfer):
 
 	for i in accounts:
 		if i == faccount:
-			frombalance += i['balance']
+			frombalance += i['balance'] - transfer
 
 	for e in accounts:
 		if e == taccount:
-			tobalance += e['balance']
+			tobalance += e['balance'] + transfer
 
-	frombalance1 = frombalance - transfer
-	tobalance1 = tobalance + transfer
-
-	return frombalance1, tobalance1
+	return frombalance, tobalance
 
 print(transfer(accounts[0], accounts[1], 8973520))
 
