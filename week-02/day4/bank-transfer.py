@@ -7,22 +7,33 @@ accounts = [
 
 def dataname(clients):
 
-    for elements in clients:
-        print(elements['client_name'], elements['balance'])
+	cn = ''
+	for i in clients:
+		cn += i['client_name'] + ': '+ str(i['balance']) + '\n'
+	return cn
 
-dataname(accounts)
+print(dataname(accounts))
 
-# Create function that returns the name and balance of cash on an account
+# Create function that returns the name and balance of cash on an accoun
 
-def transfer(account_change):
+def transfer(faccount, taccount, transfer):
+	frombalance = 0
+	tobalance= 0
 
-    x = 0
+	for i in accounts:
+		if i == faccount:
+			frombalance += i['balance']
 
-    for elements in account_change:
-        x = elements[0('balance')]
-        x = elements[1('balance')] 
-        print(elements['balance'])
-transfer(accounts)
+	for e in accounts:
+		if e == taccount:
+			tobalance += e['balance']
+
+	frombalance1 = frombalance - transfer
+	tobalance1 = tobalance + transfer
+
+	return frombalance1, tobalance1
+
+print(transfer(accounts[0], accounts[1], 8973520))
 
 # Create function that transfers an balance of cash from one account to another
 # it should have three parameters:
