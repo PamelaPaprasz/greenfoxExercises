@@ -4,10 +4,11 @@ def add(a, b):
 
 # Returns the highest value from the three given params
 def max_of_three(a, b, c):
-    if a > b:
-        return a
-    else:
-        return c
+    maximum = 0
+    for i in (a, b, c):
+        while i > maximum:
+            maximum = i
+    return maximum
 
 # Returns the median value of a list given as param
 def median(pool):
