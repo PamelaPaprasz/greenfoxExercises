@@ -18,7 +18,7 @@ class TestExtend(unittest.TestCase):
         self.assertEqual(extend.max_of_three(3, 4, 5), 5)
 
     def test_median_four(self):
-        self.assertEqual(extend.median([7,5,3,5]), 5)
+        self.assertEqual(extend.median([7,5,3,5]), 4)
 
     def test_median_five(self):
         self.assertEqual(extend.median([1,2,3,4,5]), 3)
