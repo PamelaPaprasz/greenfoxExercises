@@ -12,6 +12,7 @@ def max_of_three(a, b, c):
 
 # Returns the median value of a list given as param
 def median(pool):
+
     pool.sort()
 
     if len(pool) % 2 != 0:
@@ -22,7 +23,13 @@ def median(pool):
 
 # Returns true if the param is a vovel
 def is_vovel(char):
-    return char.lower() in 'aeiouéáőűöüóí'
+
+    char1 = list(char)
+    char1.sort()
+    if char1[0] == 'a' or 'e' or 'i' or 'o' or 'u':
+        return True
+    else:
+        return False
 
 # Create a method that translates hungarian into the teve language
 def translate(hungarian):
