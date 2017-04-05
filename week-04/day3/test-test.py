@@ -12,7 +12,7 @@ class TestExtend(unittest.TestCase):
         self.assertEqual(extend.add(4, 1), 5)
 
     def test_max_of_three_first(self):
-        self.assertEqual(extend.max_of_three(5, 4, 3), 5)
+        self.assertEqual(extend.max_of_three(7, 4, 10), 10)
 
     def test_max_of_three_third(self):
         self.assertEqual(extend.max_of_three(3, 4, 5), 5)
