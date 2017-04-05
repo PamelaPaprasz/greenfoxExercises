@@ -14,8 +14,6 @@ class Apple():
         return count
 
     def anagram(self, str1, str2):
-        self.str1 = str1
-        self.str2 = str2
 
         list_str1 = list(str1)
         list_str2 = list(str2)
@@ -27,10 +25,24 @@ class Apple():
         else:
             return False
 
+    def count_letters(self, string):
+        self.string = string
+        letter_dict = dict()
+
+        for i in string:
+            if i not in letter_dict:
+                letter_dict[i] = 1
+            else:
+                letter_dict[i] += 1
+
+        return letter_dict
+
+
 
 
 apple = Apple()
 apple.get_apple()
-print(apple.fruit_type)
-print(apple.sum([2, 5, 6, 7]))
-print(apple.anagram('dad', 'bad'))
+#print(apple.fruit_type)
+#print(apple.sum([2, 5, 6, 7]))
+#print(apple.anagram('dad', 'bad'))
+print(apple.count_letters('apple'))
