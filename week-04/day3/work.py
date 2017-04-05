@@ -37,6 +37,12 @@ class Apple():
 
         return letter_dict
 
+    def fibonacci(self, n):
+        if n == 0 or n == 1:
+            return n
+        else:
+            return (self.fibonacci(n-2) + self.fibonacci(n-1))
+
 
 
 
@@ -45,4 +51,5 @@ apple.get_apple()
 #print(apple.fruit_type)
 #print(apple.sum([2, 5, 6, 7]))
 #print(apple.anagram('dad', 'bad'))
-print(apple.count_letters('apple'))
+#print(apple.count_letters('apple'))
+#print(apple.fibonacci(5))
