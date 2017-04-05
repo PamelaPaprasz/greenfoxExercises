@@ -27,5 +27,9 @@ class testApple(unittest.TestCase):
         apple = Apple()
         self.assertEqual(apple.count_letters('apple'), {'a':1, 'p':2, 'l':1, 'e':1})
 
+    def test_fibonacci(self):
+        apple = Apple()
+        self.assertEqual(apple.fibonacci(5), 5)
+
 if __name__ == '__main__':
     unittest.main()
