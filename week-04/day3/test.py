@@ -23,5 +23,9 @@ class testApple(unittest.TestCase):
         apple = Apple()
         self.assertEqual(apple.anagram('dad', 'dad'), True)
 
+    def test_count_letter(self):
+        apple = Apple()
+        self.assertEqual(apple.count_letters('apple'), {'a':1, 'p':2, 'l':1, 'e':1})
+
 if __name__ == '__main__':
     unittest.main()
