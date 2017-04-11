@@ -3,7 +3,6 @@ from tkinter import *
 root = Tk()
 
 canvas = Canvas(root, width='720', height='720')
-canvas.pack()
 
 class Tile():
     def __init__(self):
@@ -38,28 +37,43 @@ class Hero():
         self.image_hero_left = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\hero-left.png')
         self.image_hero_right = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\hero-right.png')
         self.image_hero_up = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\hero-up.png')
+        self.hero_x = 36
+        self.hero_y = 36
 
     def draw(self):
-        self.start_hero = canvas.create_image(36, 36, image = self.image_hero_down)
+        self.start_hero = canvas.create_image(self.hero_x, self.hero_y, image = self.image_hero_down)
 
 
-class GameLogic(Tile):
+class GameLogic():
+    def __init__(self):
+        canvas.bind("<KeyPress>", self.on_key_press)
     
-    def on_key_press(e):
-        if e.keycode == 37:
-            self.image_hero_left = self.image_hero_left - 72
-        elif e.keycode == 38:
-            self.image_hero_up = self.image_hero_up -72
-        elif e.keycode == 39:
-            self.image_hero_right = self.image_hero_right + 72
-        elif e.keycode == 40:
-            self.image_hero_down = self.image_hero_down + 72
+    def on_key_press(self, e):
+        self.e = e 
+        
+        if self.e.keycode == 37:
+            hero.hero_x = self.hero_x - 72
+            hero.draw()
+        elif self.e.keycode == 38:
+            hero.hero_y = self.hero_y -72
+            hero.draw()
+        elif self.e.keycode == 39:
+            hero.hero_x = self.hero_x + 72
+            hero.draw()
+        elif self.e.keycode == 40:
+            hero.hero_y = self.hero_y + 72
+            hero.draw()
                 
-    canvas.bind("<KeyPress>", on_key_press)
 
 
 floor = Tile()
 hero = Hero()
+logic = GameLogic()
 floor.draw()
 hero.draw()
+
+
+canvas.pack()
+canvas.focus_set()
 root.mainloop()
+
