@@ -6,24 +6,32 @@ canvas = Canvas(root, width='720', height='720')
 
 class Tile():
     def __init__(self):
-        self.image_floor = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\floor.png')
+        self.image_floor = PhotoImage(file= r'd:\greenfox\PamelaPaprasz\week-05\day1\floor.png')
         self.image_wall = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\wall.png')
         
-    def draw(self):
-        self.first_square = canvas.create_image(36, 36, image = self.image_floor)
+    def draw_map(self):
         
-        for raw in range(10):
-            for column in range(10):
-                canvas.create_image(36 + 72 * raw, 36 + 72 * column, image = self.image_floor)
-                
-        self.wall_matrix = [
-        [3, 5], [3, 5, 7, 8], [1, 2, 3, 5, 7, 8], [5], [0, 1, 2, 3, 5, 6, 7, 8], [1, 3, 8], [1, 3, 5, 6, 7], [5, 6, 8], [1, 2, 3, 8], [3, 5, 6, 8], [1, 3, 5]
+        map_matrix = [
+        [0, 0, 0, 1, 0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 1, 0, 0, 0, 1, 1, 0], 
+        [0, 1, 1, 1, 0, 1, 0, 1, 1, 0], 
+        [0, 0, 0, 0, 0, 1, 0, 0, 0, 0], 
+        [1, 1, 1, 1, 0, 1, 1, 1, 1, 0], 
+        [0, 1, 0, 1, 0, 0, 0, 0, 1, 0], 
+        [0, 1, 0, 1, 0, 1, 1, 0, 1, 0], 
+        [0, 0, 0, 0, 0, 1, 1, 0, 1, 0], 
+        [0, 1, 1, 1, 0, 0, 0, 0, 1, 0], 
+        [0, 0, 0, 1, 0, 1, 1, 0, 1, 0], 
+        [0, 1, 0, 1, 0, 1, 0, 0, 0, 0]
         ]
         
-        for index_main_list in range(len(self.wall_matrix)):
-            for index_sub_list in self.wall_matrix[index_main_list]:
-                canvas.create_image(36 + 72 * index_sub_list, 36 + 72 * index_main_list, image = self.image_wall)
-                    
+        for row in range(len(map_matrix)):
+            for i in range(len(map_matrix[row])):
+                if map_matrix[row][i] == 0:
+                    canvas.create_image(72 * i, 72 * row, anchor = NW, image = self.image_floor)
+                else:
+                    canvas.create_image(72 * i, 72 * row, anchor = NW, image = self.image_wall)
+                                    
 
 class Baddie():
     def __init__(self):
@@ -37,13 +45,13 @@ class Hero():
         self.image_hero_left = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\hero-left.png')
         self.image_hero_right = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\hero-right.png')
         self.image_hero_up = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\hero-up.png')
-        self.hero_x = 36
-        self.hero_y = 36
+        self.hero_x = 0
+        self.hero_y = 0
         self.start_hero = 0
 
-    def draw(self, canvas, hero_image):
+    def draw_hero(self, canvas, hero_image):
         canvas.delete(self.start_hero)
-        self.start_hero = canvas.create_image(self.hero_x, self.hero_y, image = hero_image)
+        self.start_hero = canvas.create_image(self.hero_x, self.hero_y, anchor = NW, image = hero_image)
 
 
 class GameLogic():
@@ -53,26 +61,26 @@ class GameLogic():
     def on_key_press(self, e):
         self.e = e 
         
-        if self.e.keycode == 37:
+        if self.e.keycode == 37 and hero.hero_x > 0:
             hero.hero_x = hero.hero_x - 72
-            hero.draw(canvas, hero.image_hero_left)
-        elif self.e.keycode == 38:
+            hero.draw_hero(canvas, hero.image_hero_left)
+        elif self.e.keycode == 38 and hero.hero_y > 0:
             hero.hero_y = hero.hero_y -72
-            hero.draw(canvas, hero.image_hero_up)
-        elif self.e.keycode == 39:
+            hero.draw_hero(canvas, hero.image_hero_up)
+        elif self.e.keycode == 39 and hero.hero_x < 640:
             hero.hero_x = hero.hero_x + 72
-            hero.draw(canvas, hero.image_hero_right)
-        elif self.e.keycode == 40:
+            hero.draw_hero(canvas, hero.image_hero_right)
+        elif self.e.keycode == 40 and hero.hero_y < 640:
             hero.hero_y = hero.hero_y + 72
-            hero.draw(canvas, hero.image_hero_down)
+            hero.draw_hero(canvas, hero.image_hero_down)
                 
 
 
 floor = Tile()
 hero = Hero()
 logic = GameLogic()
-floor.draw()
-hero.draw(canvas, hero.image_hero_down)
+floor.draw_map()
+hero.draw_hero(canvas, hero.image_hero_down)
 
 
 canvas.pack()
