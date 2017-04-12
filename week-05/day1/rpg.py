@@ -25,19 +25,20 @@ class Tile():
         [0, 0, 0, 1, 0, 1, 1, 0, 1, 0], 
         [0, 1, 0, 1, 0, 1, 0, 0, 0, 0]
         ]
-        
-        for row in range(len(self.map_matrix)):
-            for i in range(len(self.map_matrix[row])):
-                if self.map_matrix[row][i] == 0:
-                    canvas.create_image(72 * i, 72 * row, anchor = NW, image = self.image_floor)
+
+        for y in range(len(self.map_matrix)):
+            for x in range(len(self.map_matrix[y])):
+                if self.map_matrix[y][x] == 0:
+                    canvas.create_image(72 * x, 72 * y, anchor = NW, image = self.image_floor)
                 else:
-                    canvas.create_image(72 * i, 72 * row, anchor = NW, image = self.image_wall)
+                    canvas.create_image(72 * x, 72 * y, anchor = NW, image = self.image_wall)
                                                         
 
 class Baddie():
     def __init__(self):
         self.image_boss = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\boss.png')
         self.image_skeleton = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\skeleton.png')
+        self.bad_boy = random.choice(floor.map_matrix)
 
 
 class Hero():
@@ -54,39 +55,40 @@ class Hero():
         self.hero_dp = 2 * random.randint(1, 6)
         self.hero_sp = 5 + random.randint(1, 6)
 
+
     def draw_hero(self, canvas, hero_image):
         canvas.delete(self.start_hero)
-        self.start_hero = canvas.create_image(self.hero_x, self.hero_y, anchor = NW, image = hero_image)
+        self.start_hero = canvas.create_image(self.hero_x * 72, self.hero_y * 72, anchor = NW, image = hero_image)
 
 
 class GameLogic():
     def __init__(self):
         canvas.bind("<KeyPress>", self.on_key_press)
     
-    def wall_detector(self):
-        for i in range(len(floor.map_matrix)):
-            for e in range(len(floor.map_matrix[i])):
-                if floor.map_matrix[i][e] == 1:
-                    return True
-        return False
-                    
+    def detector(self, x, y):
+        if 0 <= x <= 9 and 0 <= y <= 9:
+            if floor.map_matrix[y][x] == 0:
+                hero.draw_hero(canvas, hero.image_hero_down)
+                hero.hero_x = x
+                hero.hero_y = y
+                            
+                            
     def on_key_press(self, e):
         self.e = e 
         
-        if self.e.keycode == 37 and hero.hero_x > 0 and logic.wall_detector() == True:
-            hero.hero_x = hero.hero_x - 72
+        if self.e.keycode == 37:
+            self.detector(hero.hero_x - 1, hero.hero_y)
             hero.draw_hero(canvas, hero.image_hero_left)
-        elif self.e.keycode == 38 and hero.hero_y > 0 and logic.wall_detector() == True:
-            hero.hero_y = hero.hero_y -72
+        elif self.e.keycode == 38:
+            self.detector(hero.hero_x, hero.hero_y - 1)
             hero.draw_hero(canvas, hero.image_hero_up)
-        elif self.e.keycode == 39 and hero.hero_x < 640 and logic.wall_detector() == True:
-            hero.hero_x = hero.hero_x + 72
+        elif self.e.keycode == 39:
+            self.detector(hero.hero_x + 1, hero.hero_y)
             hero.draw_hero(canvas, hero.image_hero_right)
-        elif self.e.keycode == 40 and hero.hero_y < 640 and logic.wall_detector() == True:
-            hero.hero_y = hero.hero_y + 72
+        elif self.e.keycode == 40:
+            self.detector(hero.hero_x, hero.hero_y + 1)
             hero.draw_hero(canvas, hero.image_hero_down)
                 
-
 
 floor = Tile()
 hero = Hero()
@@ -94,8 +96,6 @@ logic = GameLogic()
 floor.draw_map()
 hero.draw_hero(canvas, hero.image_hero_down)
 
-
 canvas.pack()
 canvas.focus_set()
 root.mainloop()
-
