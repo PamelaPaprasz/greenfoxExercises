@@ -57,17 +57,17 @@ class Hero():
         self.image_hero_left = PhotoImage(file = 'hero-left.png')
         self.image_hero_right = PhotoImage(file = 'hero-right.png')
         self.image_hero_up = PhotoImage(file = 'hero-up.png')
-        self.hero_x = random.randint(0, 9)
-        self.hero_y = random.randint(0, 9)
-        self.start_hero = 0
+        self.x = random.randint(0, 9)
+        self.y = random.randint(0, 9)
+        self.id = 0
         
-        self.hero_hp = 20 + 3 * random.randint(1, 6)
-        self.hero_dp = 2 * random.randint(1, 6)
-        self.hero_sp = 5 + random.randint(1, 6)
+        self.hp = 20 + 3 * random.randint(1, 6)
+        self.dp = 2 * random.randint(1, 6)
+        self.sp = 5 + random.randint(1, 6)
 
     def draw_hero(self, canvas, hero_image):
-        canvas.delete(self.start_hero)
-        self.start_hero = canvas.create_image(self.hero_x * 72, self.hero_y * 72, anchor = NW, image = hero_image)
+        canvas.delete(self.id)
+        self.id = canvas.create_image(self.x * 72, self.y * 72, anchor = NW, image = hero_image)
 
 
 class GameLogic():
@@ -89,8 +89,8 @@ class GameLogic():
         if 0 <= x <= 9 and 0 <= y <= 9:
             if self.floor.map_matrix[y][x] == 0:
                 self.hero.draw_hero(canvas, self.hero.image_hero_down)
-                self.hero.hero_x = x
-                self.hero.hero_y = y
+                self.hero.x = x
+                self.hero.y = y
                             
     def is_it_free_for_skeleton(self):
         for skeleton in self.skeletons:
@@ -109,16 +109,16 @@ class GameLogic():
         self.e = e 
         
         if self.e.keycode == 37:
-            self.is_it_free_for_hero(self.hero.hero_x - 1, self.hero.hero_y)
+            self.is_it_free_for_hero(self.hero.x - 1, self.hero.y)
             self.hero.draw_hero(canvas, self.hero.image_hero_left)
         elif self.e.keycode == 38:
-            self.is_it_free_for_hero(self.hero.hero_x, self.hero.hero_y - 1)
+            self.is_it_free_for_hero(self.hero.x, self.hero.y - 1)
             self.hero.draw_hero(canvas, self.hero.image_hero_up)
         elif self.e.keycode == 39:
-            self.is_it_free_for_hero(self.hero.hero_x + 1, self.hero.hero_y)
+            self.is_it_free_for_hero(self.hero.x + 1, self.hero.y)
             self.hero.draw_hero(canvas, self.hero.image_hero_right)
         elif self.e.keycode == 40:
-            self.is_it_free_for_hero(self.hero.hero_x, self.hero.hero_y + 1)
+            self.is_it_free_for_hero(self.hero.x, self.hero.y + 1)
             self.hero.draw_hero(canvas, self.hero.image_hero_down)
                 
 
