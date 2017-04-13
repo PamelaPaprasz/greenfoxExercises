@@ -38,7 +38,15 @@ class Baddie():
     def __init__(self):
         self.image_boss = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\boss.png')
         self.image_skeleton = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\skeleton.png')
-        self.bad_boy = random.choice(floor.map_matrix)
+        self.skeleton_x = random.randint(0, 9)
+        self.skeleton_y = random.randint(0, 9)
+        self.start_skeleton = 0
+        
+        
+    def draw_skeleton(self, canvas, image_skeleton):
+        canvas.delete(self.start_skeleton)
+        self.start_skeleton = canvas.create_image(self.skeleton_x * 72, self.skeleton_y * 72, anchor = NW, image = image_skeleton)
+        
 
 
 class Hero():
@@ -47,8 +55,8 @@ class Hero():
         self.image_hero_left = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\hero-left.png')
         self.image_hero_right = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\hero-right.png')
         self.image_hero_up = PhotoImage(file = r'd:\greenfox\PamelaPaprasz\week-05\day1\hero-up.png')
-        self.hero_x = 0
-        self.hero_y = 0
+        self.hero_x = random.randint(0, 9)
+        self.hero_y = random.randint(0, 9)
         self.start_hero = 0
         
         self.hero_hp = 20 + 3 * random.randint(1, 6)
@@ -64,38 +72,48 @@ class Hero():
 class GameLogic():
     def __init__(self):
         canvas.bind("<KeyPress>", self.on_key_press)
+        self.hero = Hero()
+        self.floor = Tile()
+        self.floor.draw_map()
+        self.hero.draw_hero(canvas, self.hero.image_hero_down)
+        self.skeleton1 = Baddie()
+        self.skeleton2 = Baddie()
+        self.skeleton3 = Baddie()
+        self.skeletons = [self.skeleton1, self.skeleton2, self.skeleton3]
+        self.is_it_free_for_skeleton()
     
-    def detector(self, x, y):
+    def is_it_free_for_hero(self, x, y):
         if 0 <= x <= 9 and 0 <= y <= 9:
-            if floor.map_matrix[y][x] == 0:
-                hero.draw_hero(canvas, hero.image_hero_down)
-                hero.hero_x = x
-                hero.hero_y = y
+            if self.floor.map_matrix[y][x] == 0:
+                self.hero.draw_hero(canvas, self.hero.image_hero_down)
+                self.hero.hero_x = x
+                self.hero.hero_y = y
                             
+    def is_it_free_for_skeleton(self):
+        for skeleton in self.skeletons:
+            while self.floor.map_matrix[skeleton.skeleton_y][skeleton.skeleton_x] != 0:
+                skeleton.skeleton_x = random.randint(0, 9)
+                skeleton.skeleton_y = random.randint(0, 9)
+            skeleton.draw_skeleton(canvas, skeleton.image_skeleton)
                             
     def on_key_press(self, e):
         self.e = e 
         
         if self.e.keycode == 37:
-            self.detector(hero.hero_x - 1, hero.hero_y)
-            hero.draw_hero(canvas, hero.image_hero_left)
+            self.is_it_free_for_hero(self.hero.hero_x - 1, self.hero.hero_y)
+            self.hero.draw_hero(canvas, self.hero.image_hero_left)
         elif self.e.keycode == 38:
-            self.detector(hero.hero_x, hero.hero_y - 1)
-            hero.draw_hero(canvas, hero.image_hero_up)
+            self.is_it_free_for_hero(self.hero.hero_x, self.hero.hero_y - 1)
+            self.hero.draw_hero(canvas, self.hero.image_hero_up)
         elif self.e.keycode == 39:
-            self.detector(hero.hero_x + 1, hero.hero_y)
-            hero.draw_hero(canvas, hero.image_hero_right)
+            self.is_it_free_for_hero(self.hero.hero_x + 1, self.hero.hero_y)
+            self.hero.draw_hero(canvas, self.hero.image_hero_right)
         elif self.e.keycode == 40:
-            self.detector(hero.hero_x, hero.hero_y + 1)
-            hero.draw_hero(canvas, hero.image_hero_down)
+            self.is_it_free_for_hero(self.hero.hero_x, self.hero.hero_y + 1)
+            self.hero.draw_hero(canvas, self.hero.image_hero_down)
                 
 
-floor = Tile()
-hero = Hero()
 logic = GameLogic()
-floor.draw_map()
-hero.draw_hero(canvas, hero.image_hero_down)
-
 canvas.pack()
 canvas.focus_set()
 root.mainloop()
