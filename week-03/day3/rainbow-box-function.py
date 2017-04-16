@@ -1,4 +1,6 @@
 from tkinter import *
+import time
+import random
 
 root = Tk()
 
@@ -15,11 +17,14 @@ rainbow_box(10, 'green')
 
 
 colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+random.shuffle(colors)
 size = 300
 
 for i in range (len(colors)):
+    time.sleep(0.5)
     rainbow_box(size, colors[i])
     size -= 40
+    canvas.update()
 
 # create a square drawing function that takes 2 parameters:
 # the square size, and the fill color,
