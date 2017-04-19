@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    width: 800px;
+    background: #ffd62a;
+    align-items: center;
+}
+
+.item {
+    background: #b02aff;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+    margin-right: 45px;
+    margin-left: -40px;
+    list-style: none;
+}
