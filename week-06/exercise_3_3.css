@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    width: 800px;
+    background: #ffd62a;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.item {
+    background: #b02aff;
+    height: 100px;
+    width: 100px;
+    margin-left: 10px;
+    list-style: none;
+}
