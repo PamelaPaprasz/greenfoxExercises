@@ -7,15 +7,47 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     </head>
     <body>
-        <form action='/my-handling-form-page' method='post'>
         <header>Profil</header>
+        <form action='/my-handling-form-page' method='post'>
         <div class='background'>
             <div class='personal'>
+                
                 <p>Személyes adatok</p>
                 <label for='name'>Név *</label>
                 <input type='text' id='name'/>
+                <label for='birth'>Szuletesi eved</label>
+                <input type='text' id='birth' value='pl. 1984'/>
                 
+                <p>Nemed</p>
+                <label for='female'>no</label>
+                <input type='radio' name='gender' id='female'/>
+                <label for='male'>ferfi</label>
+                <input type='radio' name='gender' id='male'/> 
+                
+                <p>Milyen markat szeretsz?</p>
+                <label for='adidas'>Adidas</label>
+                <input type="checkbox" name='brand' id='adidas'/>
+                <label for='apple'>Apple</label>
+                <input type="checkbox" name='brand' id='apple'/>
+                <label for='cola'>Coca Cola</label>
+                <input type="checkbox" name='brand' id='cola'/>
+                <label for='mazda'>Mazda</label>
+                <input type="checkbox" name='brand' id='mazda'/>
+                <label for='nike'>Nike</label>
+                <input type="checkbox" name='brand' id='nike'/>
+                <label for='opel'>Opel</label>
+                <input type="checkbox" name='brand' id='opel'/>
+                <label for='ray'>Ray-Ban</label>
+                <input type="checkbox" name='brand' id='ray'/>
+                <label for='starbucks'>Starbucks</label>
+                <input type="checkbox" name='brand' id='starbucks'/>
+                <label for='tesla'>Tesla</label>
+                <input type="checkbox" name='brand' id='tesla'/>
+                <label for='yahoo'>Yahoo</label>
+                <input type="checkbox" name='brand' id='yahoo'/>  
+                <p>Többet is választhatsz!</p>     
             </div>
+            
             <div class='contact'>
                 <p>Kapcsolat</p>
                 <label for='phonenumber'>Telefonszám *</label>
@@ -28,6 +60,20 @@
                 <input type='twitter' id='twit' value='http://twitter.com/...'/>
                 <label for='home'>Milyen házban laksz?</label>
                 <input type='text' id='home' value='Válassz típust!'/>
+            </div>
+            
+            <div class='intro'>
+                <label for='essay'>Bemutatkozás *</label>
+                <input type='text' id='essay' value='Írj magadról pár mondatot!'/>
+                <label for='cv'>CV feltöltése</label>
+                <button type='button' id='cv'>FILE KIVÁLASZTÁSA</button>
+                <label for='ok'>Elfogadom a felhasználási feltételeket</label>
+                <input type="checkbox" id='ok'/> 
+            </div>
+            
+            <div class='ending'>
+                <button type='button' id='save'>MENTÉS</button>
+                <button type='button' id='delete'>ÜRLAP TÖRLÉSE</button>
             </div>
         </div>
         </form>
