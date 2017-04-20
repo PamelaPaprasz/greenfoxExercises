@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="form.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    </head>
+    <body>
+        <form action='/my-handling-form-page' method='post'>
+        <header>Profil</header>
+        <div class='background'>
+            <div class='personal'>
+                <p>Személyes adatok</p>
+                <label for='name'>Név *</label>
+                <input type='text' id='name'/>
+                
+            </div>
+            <div class='contact'>
+                <p>Kapcsolat</p>
+                <label for='phonenumber'>Telefonszám *</label>
+                <input type='telephone' id='phonenumber' value='+36 -- --- ----'/>
+                <label for='mail'>E-mail cím *</label>
+                <input type='email' id='mail' value='nev@domain.hu'/>
+                <label for='fb'>Facebook profilod</label>
+                <input type='facebook' id='fb' value='http://facebook.com/...'/>
+                <label for='twit'>Twitter profilod</label>
+                <input type='twitter' id='twit' value='http://twitter.com/...'/>
+                <label for='home'>Milyen házban laksz?</label>
+                <input type='text' id='home' value='Válassz típust!'/>
+            </div>
+        </div>
+        </form>
+    </body>
+</html>
