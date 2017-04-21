@@ -1,0 +1,162 @@
+
+header{
+    /*display: flex;*/
+    flex-direction: column; 
+    background: url(macska.jpg) no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    margin-bottom: -500px;
+    font-family: 'Abril Fatface', cursive;
+    color: #F1077E;
+    font-size: 30px;
+    text-align: center;
+    padding: 50px 300px 950px 290px;
+}
+
+.mainhead{
+    color: #F1077E;
+}
+
+.name{
+    margin-top: 250px;
+    margin-left: 200px;
+}
+
+
+.location{
+    margin-top: 50px; 
+    margin-left: -100px;  
+}
+
+.mobile{
+    margin-left: 750px;
+    margin-top: 60px;    
+}
+
+.greenhead{
+    color: #2E7A2D;
+}
+.mail{
+    margin-left: 710px;    
+    margin-top: -200px;
+}
+
+.tools{
+    display: flex;
+    text-align: left;
+}
+
+ul{
+    list-style: none;
+}
+
+span{
+    font-size: 60px;
+}
+
+main{
+    width: 100%;
+    margin: 0 auto;
+    /*margin-top: 500px;*/
+    font-size: 20px;
+    line-height: 2rem;
+    padding-top: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+hr{
+    background: black;
+    height: 3px;
+}
+
+h1{
+    background: url(white.png) no-repeat left top;
+    background-size: 50px;
+    color: #C01055;
+    font-family: 'Abril Fatface', cursive;
+    background-color: #AFFA12;
+    padding: 50px;
+    letter-spacing: 4px;
+    font-size: 36px;
+    /*margin-left: -40px;
+    margin-right: -40px;*/
+}
+
+h2{
+    color: #FB1;
+    font-weight: bold;
+}
+
+p, h3, h4 {
+    color: #F00;
+}
+.upper{
+    text-transform: uppercase;
+}
+
+.italic{
+    font-family: 'Merriweather', serif;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.wrapper{
+    display: flex;
+    background: white;
+    height: 2000px;
+    width: 900px;
+}
+
+.button{
+    width: 230px;
+    height: 400px;
+    /*margin-top: -200px;;*/
+    margin-right: 10px; 
+    margin-left: 800px;
+    margin-bottom: 300px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    color: white;  
+    border: 1px solid gray;
+    box-shadow: 2px -10px 200px 90px #BAFF1E;  
+    text-shadow: 1px -1px 1px #000;
+}
+
+.one{
+    background: #D4D;   
+    background: linear-gradient(to top, #D4D 0%, #F00B42 100%);
+    box-shadow: 2px -10px 200px 90px #000; 
+}
+
+.one:hover{
+    background: #D4D; 
+    background: linear-gradient(to bottom, #D4D 0%, #F00B42 100%);
+    box-shadow: none;
+}
+
+.two {
+    background: #00ADDB; 
+    background: linear-gradient(to bottom, #00ADDB 0%, #E5E5E5 100%);    
+}
+
+.two:hover{
+    background: #FFF;
+    box-shadow: none;
+    text-shadow: none; 
+    border: none;  
+}
+
+
+.three{
+    background: #60D;    
+    background: linear-gradient(to top, #60D 0%, #0FF1C3 100%);    
+}
+
+.three:hover{
+    background: #F06; 
+    border-radius: 50%;
+    box-shadow: 1px 220px 190px #BAFF1E;  
+    text-shadow: 1px -1px 1px #000;  
+    background: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, violet);    
+}
