@@ -14,6 +14,15 @@ header{
     position: fixed;
 }
 
+
+.name {
+    /*display: block;*/
+    font-size: 36px;
+    color: #BA11E7;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
 nav{
     position: fixed;
     padding-top: 50px;
@@ -24,7 +33,8 @@ nav ul{
     /*margin-left: 50px;*/
     display: flex;
     flex-direction: column;
-    background: pink;
+    background: #FAB; 
+    box-shadow: 5px 5px 40px 20px #FAB;
     width: 1519px;
     padding-left: 50px;
     padding-top: 10px;
@@ -32,13 +42,15 @@ nav ul{
 }
 
 a {
-    color: #F1077E;
+    text-decoration-line: none;
+    color: #3461E5;
+    font-weight: 900;
 }
 
 .menucontainer {
     font-size: 20px;
 }
-main, footer{
+main {
     /*width: 500px;*/
     max-width: 780px;
     font-family: 'Josefin Sans', sans-serif;
@@ -66,7 +78,7 @@ main, footer{
     padding: 50px 40px 50px 40px;
     /*background: linear-gradient(to top, red 0%, blue 100%);*/
     color: white;
-    background: white;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 /*li {
@@ -82,7 +94,7 @@ main, footer{
 }
 
 .schools {
-    background: blue;
+    background: rgba(90,23,237,0.5);
     border-radius: 50%;
     /*padding-top: 120px; if you want to jump to a certain point of your web page manipulate the padding not the margin*/
 }
@@ -90,16 +102,16 @@ main, footer{
 .schoolcontainer {
     background: white;
     border-radius: 30%;
-    background: linear-gradient(to right, pink 0%, tomato 100%);
+    background: linear-gradient(to right, grey 0%, #2ED 100%);
     /*padding: 10px;*/
     margin-top: 20px;
 }
 
 h1{
     background-size: 50px;
-    color: #C01055;
+    color: #BA0BAB;
     font-family: 'Abril Fatface', cursive;
-    background-color: #AFFA12;
+    background-color: rgba(186,255,30,0.8);
     /*width: 1080px;*/
     padding: 50px;
     margin-right: -40px;
@@ -120,27 +132,43 @@ h2{
 }
 
 p, h3, h4 {
-    color: #F00;
+    color: #0FF1CE;
+}
+
+p{
+    font-size: 18px;
 }
 
 footer {
+    /*max-width: 780px;*/
+    font-family: 'Josefin Sans', sans-serif;
+    /*margin: auto;*/
+    line-height: 1.5;
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 30px;
+    /*justify-content: center;*/
+    /*padding: 30px;*/
+    /*padding-left: -30px;*/
 }
 
-button {
-    width: 530px;
+.contact {
+    text-align: center;
+    width: 1320px;
+    /*width: 530px;*/
     height: 70px;
-    margin-top: 15%;
-    margin-left: 120px; 
+    margin-top: 75px;
+    margin-left: 100px;
+    padding-left: -90px;
+    padding-top: 20px;
+    /*margin-left: 120px; */
     font-family: sans-serif;
     font-style: normal;
     font-size: 30px;
-    color: white;  
-    background: #AFFA12;
-    border: 1px solid #AFFA12;
-    box-shadow: 2px 2px 40px 20px #AFFA12;  
+    color: #0FF1CE;  
+    background: rgb(250,17,237);
+    /*border: 1px solid #AFFA12;*/
+    box-shadow: 1px 1px 30px 10px #FA11ED;  
+    box-shadow: 0px 0px 20px 10px #0FF1CE;  
     text-shadow: 1px -1px 1px #000;
 }
