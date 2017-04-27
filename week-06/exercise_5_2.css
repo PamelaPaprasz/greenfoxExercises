@@ -16,21 +16,21 @@
 }
 
 header {
-    margin-top: 0;
-    margin-bottom: auto;
     width: auto;
-    height: 60px;
+    height: 70px;
     background: #00ffff;
 }
 
 .middle {
+    width: auto;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
 }
 
 .sidebar {
-    width: 21%;
-    height: 625px;
+    min-width: 200px;
+    width: 10%;
+    height: 650px;
 }
 
 .yellow {
@@ -46,13 +46,13 @@ header {
 }
 
 main {
-    display: flex;
-    width: 55%;
+    width: 70%;
     height: 625px;
     background: red;
 }
 
 .cube {
+    position: relative;
     margin-left: 700px;
     margin-top: 490px;
     width: 100px;
