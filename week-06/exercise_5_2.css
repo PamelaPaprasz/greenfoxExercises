@@ -12,15 +12,12 @@ header { /*this whole part was here originally*/
 
 .middle {
     width: auto; /*it was here originally and when I am not using this it ruins the whole thing, plus it seems width auto and 100% are the same things*/
-    /*display: flex; /*it was here originally , it cause the same problem like comenting out the width auto*/
-    display: flex;
+    display: flex; /*it was here originally , it cause the same problem like comenting out the width auto*/
 }
 
 .sidebar {
-    /*min-width: 200px;
-    height: 650px;*/
-    min-width: 200px;
-    height: 620px;
+    min-width: 200px; /*it was here originally */  
+    height: 620px; /*it was here originally */  
     position: relative; /*position relative works because the order of the html code*/
 }
 
@@ -37,14 +34,11 @@ header { /*this whole part was here originally*/
 }
 
 .red {
-    /*width: 70%;
-    height: 625px;
-    background: red;*/
-    background-color: red;
-    width: 80%;
+    background: red; /*it was here originally */  
+    width: 80%; /*it was here originally */  
+    height: 620px; /*it was here originally */  
     margin-left: 1%;
     margin-right: 1%;
-    height: 620px;
 }
 
 .cube {
