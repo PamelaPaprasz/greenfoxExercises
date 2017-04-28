@@ -4,65 +4,64 @@
     padding: 0;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: white;
-}
-
-header {
+header { /*this whole part was here originally*/
     width: auto;
     height: 70px;
-    background: #00ffff;
+    background: #00ffff; 
 }
 
 .middle {
-    width: auto;
+    width: auto; /*it was here originally and when I am not using this it ruins the whole thing, plus it seems width auto and 100% are the same things*/
+    /*display: flex; /*it was here originally , it cause the same problem like comenting out the width auto*/
     display: flex;
-    justify-content: space-between;
 }
 
 .sidebar {
+    /*min-width: 200px;
+    height: 650px;*/
     min-width: 200px;
-    width: 10%;
-    height: 650px;
+    height: 620px;
+    position: relative; /*position relative works because the order of the html code*/
 }
 
 .yellow {
-    margin-left: 0;
-    margin-right: auto;
-    background: #fea500;    
+    /*margin-left: 0;
+    margin-right: auto;*/
+    background: #fea500; /*it was here originally */   
 }
 
 .purple {
-    margin-right: 0;
-    margin-left: auto;
-    background: #81007f;
+    /*margin-right: 0;
+    margin-left: auto;*/
+    background: #81007f; /*it was here originally */
 }
 
-main {
-    width: 70%;
+.red {
+    /*width: 70%;
     height: 625px;
-    background: red;
+    background: red;*/
+    background-color: red;
+    width: 80%;
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 620px;
 }
 
 .cube {
-    position: fixed;
-    margin-left: 700px;
-    margin-top: 490px;
-    width: 100px;
-    height: 100px;
-    background: black;
+    background: black; /*it was here originally */
+    width: 100px; /*it was here originally */
+    height: 100px; /*it was here originally */
+    margin-top: 480px; /*it was here originally */
+    margin-right: 50px;
+    float: right; /*if i try use margin left and not to float the element to right the cube wont stay at its place but will disappear when i make the window smaller*/
+    position: relative;
+    /*margin-left: 950px;
+    position: fixed;*/
 }
 
-footer {
-    margin-top: auto;
-    margin-bottom: 0;
+footer { /*this whole part was here originally but i commented the margins out plus great that the top of this footer is always the bottom of the highest element above*/
+    /*margin-top: auto;
+    margin-bottom: 0;*/
     width: auto;
     height: 80px;
     background: #0000fe;
