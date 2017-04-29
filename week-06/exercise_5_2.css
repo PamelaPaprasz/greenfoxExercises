@@ -4,58 +4,50 @@
     padding: 0;
 }
 
-header { /*this whole part was here originally*/
+header {
     width: auto;
     height: 70px;
-    background: #00ffff; 
+    background: #00ffff;
 }
 
 .middle {
-    width: auto; /*it was here originally and when I am not using this it ruins the whole thing, plus it seems width auto and 100% are the same things*/
-    display: flex; /*it was here originally , it cause the same problem like comenting out the width auto*/
+    width: auto;
+    display: flex;   
 }
 
 .sidebar {
-    min-width: 200px; /*it was here originally */  
-    height: 620px; /*it was here originally */  
-    position: relative; /*position relative works because the order of the html code*/
+    min-width: 200px;
+    height: 608px;
+    position: relative;
 }
 
 .yellow {
-    /*margin-left: 0;
-    margin-right: auto;*/
-    background: #fea500; /*it was here originally */   
+    background: #fea500;    
 }
 
 .purple {
-    /*margin-right: 0;
-    margin-left: auto;*/
-    background: #81007f; /*it was here originally */
+    background: #81007f;
 }
 
 .red {
-    background: red; /*it was here originally */  
-    width: 80%; /*it was here originally */  
-    height: 620px; /*it was here originally */  
+    width: 80%;
+    height: 608px;
+    background: red;
     margin-left: 1%;
     margin-right: 1%;
-}
-
-.cube {
-    background: black; /*it was here originally */
-    width: 100px; /*it was here originally */
-    height: 100px; /*it was here originally */
-    margin-top: 480px; /*it was here originally */
-    margin-right: 50px;
-    float: right; /*if i try use margin left and not to float the element to right the cube wont stay at its place but will disappear when i make the window smaller*/
+ }
+ 
+ .cube {
+    width: 100px;
+    height: 100px;
+    background: black;
     position: relative;
-    /*margin-left: 950px;
-    position: fixed;*/
+    margin-top: 460px;
+    margin-right: 70px;
+    float: right;
 }
 
-footer { /*this whole part was here originally but i commented the margins out plus great that the top of this footer is always the bottom of the highest element above*/
-    /*margin-top: auto;
-    margin-bottom: 0;*/
+footer {
     width: auto;
     height: 80px;
     background: #0000fe;
