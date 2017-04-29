@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+header {
+    background: #b02aff;
+    height: 65px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 15px;
+}
+
+.item {
+    background: #35d9ff;
+    height: 35px;
+    width: 75px;
+    margin: 15px 15px;
+}
+
+.oneblue {
+    width: 145px;
+}
+
+.twoblue {
+    width: 75px;
+    margin-left: -250px;
+}
+
+.threeblue {
+    width: 105px;
+    margin-left: -250px;
+}
+
+.fourblue {
+    width: 35px;
+    margin-right: -250px;
+}
+
+.fiveblue {
+    width: 35px;
+}
+
+.container {
+    display: flex;
+    height: 650px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.yellow {
+    display: flex;
+    flex-direction: column;
+    background: #ffd62a;
+    width: 600px;    
+}
+
+.green {
+    display: flex;
+    flex-direction: column;
+    background: #51d400;
+    width: 200px;
+    padding-top: 20px;
+}
+
+.containerred1 {
+    display: flex;
+}
+
+.containerred2 {
+    display: flex;
+}
+
+.red {
+    width: 113px;
+    height: 113px;
+    background: red;
+    margin-top: 25px;
+    margin-left: 30px;
+}
+
+p {
+    text-align: justify;
+}
+
+h3 {
+    margin: 30px 30px 10px 30px;    
+}
+
+.head2, .head3, .head4, .head5 {
+    margin-left: 0px;
+}
+
+.text1 {
+    margin: 10px 30px 10px 30px;
+}
+
+.containertext {
+    display: flex;  
+}
+
+.containertext2 {
+    margin: 10px 15px 10px 30px;
+}
+
+.containertext3 {
+    margin: 10px 30px 10px 15px;
+}
+
+.containerblack {
+    display: flex;
+}
+
+.black {
+    width: 140px;
+    height: 30px;
+    background: black;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+.containertext4 {
+    margin: 10px 30px 0px;
+}
+
+.containertext5 {
+    margin: 10px 30px;
+}
