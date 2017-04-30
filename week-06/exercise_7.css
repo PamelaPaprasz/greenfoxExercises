@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 65px;
+    background: #b02aff;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
+
+.item {
+    height: 35px;
+    margin: 15px 15px;
+    background: #35d9ff;
+}
+
+.oneblue {
+    width: 105px;
+    margin-left: 120px;
+}
+
+.twoblue {
+    width: 75px;
+}
+
+.threeblue {
+    width: 105px;
+}
+
+.fourblue {
+    width: 75px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 1300px;
+    margin: 0 auto;
+}
+
+.green1 {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    margin-top: 75px;
+    width: 630px; 
+    height: 500px;
+    border: 10px solid white;   
+    background: #51d400;
+}
+
+.green2 {
+    display: flex;
+    margin-left: auto;
+    flex-direction: column;
+    margin-top: 75px;
+    width: 630px;
+    height: 500px;
+    border: 10px solid white;
+    background: #51d400;
+}
+
+.green3 {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    width: 630px;
+    height: 500px;
+    border: 10px solid white;
+    background: #51d400;
+}
+
+h2 {
+    margin: 30px 30px 10px 30px;
+}
+
+p {
+    margin: 15px 30px 10px 30px;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.green4, .green5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    width: 305px;
+    height: 500px;
+    border: 10px solid white;
+    background: #51d400;
+}
+
+.red1, .red2 {
+    width: 150px;
+    height: 300px;
+    background: red;
+}
+
+footer {
+    margin: 0 auto;
+    width: 1285px;
+    height: 65px;
+    background: grey;
+    border: 10px solid white;   
+}
+
