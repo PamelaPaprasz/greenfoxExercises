@@ -18,26 +18,27 @@ ul {
 }
 
 .item {
+    flex-basis: auto;
     height: 35px;
     margin: 15px 15px;
     background: #35d9ff;
 }
 
 .oneblue {
-    width: 105px;
-    margin-left: 120px;
+    width: 125px;
+    margin-left: 7.6vw;
 }
 
 .twoblue {
-    width: 75px;
-}
-
-.threeblue {
     width: 105px;
 }
 
+.threeblue {
+    width: 125px;
+}
+
 .fourblue {
-    width: 75px;
+    width: 105px;
 }
 
 .container {
@@ -88,14 +89,14 @@ p {
 }
 
 .red1, .red2 {
-    width: 150px;
-    height: 300px;
+    width: 10vw;
+    height: 20vw;
     background: red;
 }
 
 footer {
     margin: 0 auto;
-    width: 1285px;
+    width: 84.1vw;
     height: 65px;
     background: grey;
     border: 10px solid white;   
