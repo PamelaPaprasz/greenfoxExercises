@@ -57,10 +57,52 @@ ul {
     flex-direction: column;
     margin-top: 75px;
     width: 100%;
-    height: 500px;
+    height: 32.5vw;
     border: 10px solid white;   
     background: #51d400;
     overflow: auto;
+}
+
+.green1::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.green1::-webkit-scrollbar-track {
+    background-color: yellow;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.8);*/
+}
+ 
+.green1::-webkit-scrollbar-thumb {
+  background-color: violet;
+  /*outline: 1px solid yellow;*/
+}
+
+.green2::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.green2::-webkit-scrollbar-track {
+    background-color: yellow;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.8);*/
+}
+ 
+.green2::-webkit-scrollbar-thumb {
+  background-color: indigo;
+  /*outline: 1px solid yellow;*/
+}
+
+.green3::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.green3::-webkit-scrollbar-track {
+    background-color: yellow;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.8);*/
+}
+ 
+.green3::-webkit-scrollbar-thumb {
+  background-color: pink;
+  /*outline: 1px solid yellow;*/
 }
 
 .green3 {
@@ -83,7 +125,7 @@ p {
     justify-content: center;
     align-items: center;
     width: 48.3%;
-    height: 500px;
+    height: 32.5vw;
     border: 10px solid white;
     background: #51d400;
 }
