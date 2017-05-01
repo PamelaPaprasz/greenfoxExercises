@@ -43,7 +43,7 @@ ul {
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 1300px;
+    width: 85vw;
     margin: 0 auto;
 }
 
@@ -55,11 +55,11 @@ ul {
     display: flex;
     flex-direction: column;
     margin-top: 75px;
-    flex-shrink: 1;
     width: 100%;
     height: 500px;
     border: 10px solid white;   
     background: #51d400;
+    overflow: auto;
 }
 
 .green3 {
@@ -81,9 +81,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*margin-left: auto;*/
-    flex-grow: 2;
-    min-width: 305px;
+    width: 50%;
     height: 500px;
     border: 10px solid white;
     background: #51d400;
