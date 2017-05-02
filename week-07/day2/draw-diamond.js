@@ -24,10 +24,13 @@ var lineCount = 7;
 
 for (var i = 0; i <= lineCount; i++){
     if (i < (lineCount/2)){
-        console.log(paddingSpace.repeat(lineCount-(i)) + star.repeat(s + 1) + paddingSpace.repeat(lineCount-(i)));
+        console.log(paddingSpace.repeat(lineCount-i) + star.repeat(s + 1) + paddingSpace.repeat(lineCount-i));
         s += 2;
-    } else{
-        console.log(paddingSpace.repeat(i) + star.repeat(s-1) + paddingSpace.repeat(i));
+    } else if (i === 4){
+        s -= 3;
+        continue;
+    } else if (i > 4){
+        console.log(paddingSpace.repeat(i) + star.repeat(s) + paddingSpace.repeat(i));
         s -= 2;
     };
 };
