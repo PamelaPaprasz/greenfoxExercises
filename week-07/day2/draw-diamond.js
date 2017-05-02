@@ -1,8 +1,5 @@
 'use strict';
 
-
-
-
 // Write a program that draws a
 // diamond like this:
 //
@@ -20,17 +17,14 @@
 var star = '*';
 var s = 0;
 var paddingSpace = ' ';
-var lineCount = 7;
+var lineCount = 17;
 
 for (var i = 0; i <= lineCount; i++){
     if (i < (lineCount/2)){
-        console.log(paddingSpace.repeat(lineCount-i) + star.repeat(s + 1) + paddingSpace.repeat(lineCount-i));
+        console.log(paddingSpace.repeat(lineCount-i) + star.repeat(s + 1));
         s += 2;
-    } else if (i === 4){
-        s -= 3;
-        continue;
-    } else if (i > 4){
-        console.log(paddingSpace.repeat(i) + star.repeat(s) + paddingSpace.repeat(i));
+    } else if (i > lineCount/2){
         s -= 2;
+        console.log(paddingSpace.repeat(i+1) + star.repeat(s-1));
     };
 };
