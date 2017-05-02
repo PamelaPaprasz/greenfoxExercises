@@ -17,13 +17,13 @@
 var star = '*';
 var s = 0;
 var paddingSpace = ' ';
-var lineCount = 17;
+var lineCount = 35;
 
-for (var i = 0; i <= lineCount; i++){
-    if (i < (lineCount/2)){
-        console.log(paddingSpace.repeat(lineCount-i) + star.repeat(s + 1));
+for (var i = 0; i < lineCount; i++){
+    if (i < lineCount/2){
+        console.log(paddingSpace.repeat(lineCount-i) + star.repeat(s+1));
         s += 2;
-    } else if (i > lineCount/2){
+    } else if (i > lineCount/2 && i < lineCount){
         s -= 2;
         console.log(paddingSpace.repeat(i+1) + star.repeat(s-1));
     };
