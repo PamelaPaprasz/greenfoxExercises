@@ -1,6 +1,5 @@
 'use strict';
 
-var lineCount = 4;
 
 // Write a program that draws a
 // pyramid like this:
@@ -15,8 +14,9 @@ var lineCount = 4;
 
 var star = '*';
 var paddingSpace = ' ';
+var lineCount = 29;
 
 for (var i = 0; i < lineCount; i++){
-    console.log(paddingSpace.repeat(lineCount-(i)) + star + paddingSpace.repeat(lineCount-(i)));
+    console.log(paddingSpace.repeat(lineCount-(i)) + star);
     star += '**';
 };
