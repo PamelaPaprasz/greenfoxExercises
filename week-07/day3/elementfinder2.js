@@ -7,15 +7,18 @@ var listOfNumbers = [2, 4, 6, 8, 10, 12, 14, 16];
 var numbers = [4, 8, 12, 16];
 
 function numChecker(needles, haystack){
-    for(var i = 0 , len = needles.length; i < len; i++){
-        if(needles[i], haystack === -1){
-            return false;
+    
+    for(var i = 0 , len = needles.length, isInList = 0; i <= len; i++, isInList++){
+        
+        if (haystack.indexOf(needles[i]) !== -1 && isInList < len){
+            continue;
+        } else if (isInList === len){
+            return true;   
         } else{
-            return true;
+            return false;
         };
     };
 };
      
 console.log(numChecker(numbers, listOfNumbers));
-
 
