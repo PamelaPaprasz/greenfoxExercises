@@ -8,4 +8,14 @@
 
 var aj = [3, 4, 5, 6, 7];
 
-console.log(aj.reverse());
+function reverse(array){
+    var revArr = new Array;
+    for (var i = array.length-1; i>=0; i--){
+        revArr.push(array[i]);
+    };   
+    return revArr;
+};
+console.log(reverse(aj));
+
+// console.log(aj.reverse());
+
