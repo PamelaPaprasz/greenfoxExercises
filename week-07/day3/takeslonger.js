@@ -6,7 +6,7 @@ var quote = "Hofstadter's Law: It you expect, even when you take into account Ho
 var text = ' always takes longer than';
 var position = 20;
 
-var newOut = [quote.slice(0, position), text, quote.slice(position)].join('');
+var newOut = quote.substr(0, position) + text + quote.substr(position);
 
 console.log(newOut);
 
