@@ -37,7 +37,7 @@ asteroidList.removeChild(king);
 for (var i = 0; i<planetData.length; i++){
     if (planetData[i].asteroid === true){
         var newAsteroid = document.createElement('li');
-        newAsteroid.id = planetData[i].category;
+        newAsteroid.className = planetData[i].category;
         newAsteroid.textContent = planetData[i].content;
         asteroidList.appendChild(newAsteroid);
     };
