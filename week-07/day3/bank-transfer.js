@@ -18,14 +18,12 @@ var accounts = [
 
 function nameBalance(){
     
-    var listName = new Array;
-    var listBalance = new Array;
+    var importantList = new Array;
     
     accounts.forEach(function(element){
-        listName.push(element.client_name);
-        listBalance.push(element.balance);
+        importantList.push(element.client_name);
+        importantList.push(element.balance);
     });
-    var importantList = listName.concat(listBalance);
     return importantList;
 };
 
