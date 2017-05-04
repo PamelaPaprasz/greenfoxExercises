@@ -24,5 +24,19 @@ function moreCandy4(array){
     });
     return moreCandy;
 };
-
 console.log(moreCandy4(students));
+
+
+
+function avarCandies(array){
+    
+    var sumCand = 0;
+        
+    array.forEach(function(element){
+        sumCand += element.candies;
+    });
+    var avarageCandy = sumCand / array.length;
+    return avarageCandy;    
+};
+console.log(avarCandies(students));
+
