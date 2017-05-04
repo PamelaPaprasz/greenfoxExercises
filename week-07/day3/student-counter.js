@@ -18,12 +18,28 @@ var students = [
 
 function candyCounter(array){
     
-    var candiesSum = 0;
+    var sumCandies = 0;
+    
     array.forEach(function(element){
-        candiesSum += element.candies;
+        sumCandies += element.candies;
     });
-    return candiesSum;
+    return sumCandies;
 };
-
 console.log(candyCounter(students));
+
+
+
+
+function lessCandySumAge(array){
+    
+    var sumAge = 0;
+    
+    array.forEach(function(element){
+        if (element.candies < 5){
+            sumAge += element.age;
+        };
+    });
+    return sumAge;
+};
+console.log(lessCandySumAge(students));
     
