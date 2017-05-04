@@ -16,11 +16,14 @@ var students = [
 // - Sum of the age of people who have lass than 5 candies-
 
 
-var allCandies = students.map(function(element){
-    return element.candies;
-});
+function candyCounter(array){
+    
+    var candiesSum = 0;
+    array.forEach(function(element){
+        candiesSum += element.candies;
+    });
+    return candiesSum;
+};
 
-console.log(allCandies.reduce(function(prev, next){
-    return prev + next;
-}));
+console.log(candyCounter(students));
     
