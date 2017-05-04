@@ -18,10 +18,15 @@ var accounts = [
 
 function nameBalance(){
     
-    var moneyWho = accounts.map(function(element){
-        return element.client_name + element.balance;
+    var listName = new Array;
+    var listBalance = new Array;
+    
+    accounts.forEach(function(element){
+        listName.push(element.client_name);
+        listBalance.push(element.balance);
     });
-    return moneyWho;
+    var importantList = listName.concat(listBalance);
+    return importantList;
 };
 
 console.log(nameBalance());
