@@ -35,11 +35,12 @@ var king = document.querySelector('li');
 asteroidList.removeChild(king);
 
 for (var i = 0; i<planetData.length; i++){
-    if(planetData[i].asteroid === true){
+    if (planetData[i].asteroid === true){
         var newAsteroid = document.createElement('li');
-        newAsteroid.id = i.category;
-        newAsteroid.textContent = i.content;
+        newAsteroid.id = planetData[i].category;
+        newAsteroid.textContent = planetData[i].content;
         asteroidList.appendChild(newAsteroid);
     };
 };
 
+console.log(asteroidList);
