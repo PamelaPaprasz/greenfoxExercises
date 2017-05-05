@@ -6,6 +6,7 @@ var currentText = document.querySelector('p');
 // var currentImg = document.querySelector('img');
 var i = -1;
 callImage('cic.jpg');
+callText();
 
 images.forEach(function(element){
     var thumb = document.createElement('img');
@@ -20,7 +21,11 @@ function callImage(url = false){
 };
 
 function callText(){
-    currentText.textContent = images[i].title + '\n' + images[i].discr;
+    if (i === -1){
+        currentText.textContent = openingTitle;
+    } else{
+        currentText.textContent = images[i].title + '\n' + images[i].discr;    
+    };
 };
 
 
