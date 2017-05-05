@@ -15,10 +15,20 @@ images.forEach(function(element){
     allThumb.appendChild(thumb);    
 });
 
+
+var thumbElement = document.querySelectorAll('.thumblist img');
+
+function thumbClick(){
+    main.style.backgroundImage = 'url(' + thumbElement[0].src + ')';
+};
+thumbElement[0].addEventListener('click', thumbClick);
+
+
 function callImage(url = false){
     var imageName = url || images[i].img;
     main.style.backgroundImage = 'url(' + imageName + ')';
 };
+
 
 function callText(){
     if (i === -1){
@@ -52,5 +62,7 @@ function callNext(){
     callText();
 };
 rightBut.addEventListener('click', callNext);
+
+
 
 
