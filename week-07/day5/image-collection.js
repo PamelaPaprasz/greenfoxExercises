@@ -1,3 +1,5 @@
+var openingTitle = '!!!!!!!!! u wont see this cat ever again !!!!!!!!!!';
+
 var images = [
     {
         img: 'kezd.jpg',
