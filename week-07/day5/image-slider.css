@@ -47,7 +47,8 @@ button {
     height: 10vh;
     background: rgba(255,255,255,0.5);
     margin-left: 3.3vw;
-    text-align: left;
-    font-size: 3vw;
+    text-align: center;
+    line-height: 5vw;
+    font-size: 2vw;
     color: white;
 }
