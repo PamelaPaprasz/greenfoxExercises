@@ -31,7 +31,7 @@ button {
     display: flex; 
 }
 
-.thumb {
+.thumb0, .thumb1, .thumb2, .thumb3, .thumb4, .thumb5, .thumb6, .thumb7, .thumb8, .thumb9 {
     width: 9vw;
     height: 7vw;
     margin-top: 3vw;
