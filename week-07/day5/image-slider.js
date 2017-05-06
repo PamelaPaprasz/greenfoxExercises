@@ -14,23 +14,43 @@ images.forEach(function(element){
     thumb.setAttribute('src', element.img);
     thumb.setAttribute('title', element.title);
     thumb.setAttribute('discr', element.discr);
-    thumb.innerHTML = t++;
-    thumb.className = 'thumb';
+    // thumb.innerHTML = t++;
+    thumb.className = 'thumb' + ' ' + t++;
     allThumb.appendChild(thumb);    
 });
 
+var thumbElement = document.querySelectorAll('.thumblist img');
 
+var thumb = document.querySelector('.thumb');
+// var thumb1 = document.querySelector('.thumb.1');
+// var thumb2 = document.querySelector('.thumb.2');
+// var thumb3 = document.querySelector('.thumb.3');
+// var thumb4 = document.querySelector('.thumb.4');
+// var thumb5 = document.querySelector('.thumb.5');
+// var thumb6 = document.querySelector('.thumb.6');
+// var thumb7 = document.querySelector('.thumb.7');
+// var thumb8 = document.querySelector('.thumb.8');
+// var thumb9 = document.querySelector('.thumb.9');
+
+
+function thumbClick(){
+    main.style.backgroundImage = 'url(' + thumb.src + ')';
+    currentText.textContent = thumb.title + ' ' + thumb.discr;  
+    // currentText.textContent = thumb.title;  
+    // currentText.textContent = thumb.discr;  
+};
+thumb.addEventListener("click", thumbClick);
+
+
+
+
+// thumbElement.forEach(function(eachThumb) {
+//   eachThumb.addEventListener('click', thumbClick);
+// });
 
 // ('.thumblist img').click(function() {
 //     t = '.thumblist img'.index(this);
 // });
-
-
-
-// allThumb.forEach(function(element) {
-//   element.addEventListener('click', slider);
-// });
-
 
 // function whichThumbClicked(){
 //     
@@ -46,18 +66,10 @@ images.forEach(function(element){
 // };
 // thumbElement.addEventListener('click', handleClick);
 // 
-// var thumbElement = document.querySelectorAll('.thumblist img');
 // 
 // var clickedThumb = onclick.target.index;
 // 
-// function thumbClick(){
-//     main.style.backgroundImage = 'url(' + thumbElement[clickedThumb].src + ')';
-//     currentText.textContent = thumbElement[clickedThumb].class + '\n' + thumbElement[clickedThumb].id;  
-// };
 // 
-// thumbElement.forEach(function(element){
-//     element.addEventListener('click', thumbClick);   
-// });
 
 // function countIndex(){
 //     for (var t = 0; t<thumbElement.length-1; t++){
@@ -72,7 +84,6 @@ images.forEach(function(element){
 // };
 
 
-// thumbElement.getAttribute('src').addEventListener("click", thumbClick);
 // thumbElement.addEventListener('click', thumbClick);
 // thumbElement.onclick = thumbClick;
 
