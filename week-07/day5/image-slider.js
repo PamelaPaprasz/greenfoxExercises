@@ -6,6 +6,7 @@ var currentText = document.querySelector('p');
 // var currentImg = document.querySelector('img');
 var i = -1;
 var t = 0;
+var thumbNth = 0;
 callImage('cic.jpg');
 callText();
 
@@ -14,32 +15,86 @@ images.forEach(function(element){
     thumb.setAttribute('src', element.img);
     thumb.setAttribute('title', element.title);
     thumb.setAttribute('discr', element.discr);
+    thumb.setAttribute('number', t++);
     // thumb.innerHTML = t++;
-    thumb.className = 'thumb' + ' ' + t++;
+    thumb.className = 'thumb'+ thumbNth++;
     allThumb.appendChild(thumb);    
 });
 
 var thumbElement = document.querySelectorAll('.thumblist img');
 
-var thumb = document.querySelector('.thumb');
-// var thumb1 = document.querySelector('.thumb.1');
-// var thumb2 = document.querySelector('.thumb.2');
-// var thumb3 = document.querySelector('.thumb.3');
-// var thumb4 = document.querySelector('.thumb.4');
-// var thumb5 = document.querySelector('.thumb.5');
-// var thumb6 = document.querySelector('.thumb.6');
-// var thumb7 = document.querySelector('.thumb.7');
-// var thumb8 = document.querySelector('.thumb.8');
-// var thumb9 = document.querySelector('.thumb.9');
+
+var thumb0 = document.querySelector('.thumb0');
+var thumb1 = document.querySelector('.thumb1');
+var thumb2 = document.querySelector('.thumb2');
+var thumb3 = document.querySelector('.thumb3');
+var thumb4 = document.querySelector('.thumb4');
+var thumb5 = document.querySelector('.thumb5');
+var thumb6 = document.querySelector('.thumb6');
+var thumb7 = document.querySelector('.thumb7');
+var thumb8 = document.querySelector('.thumb8');
+var thumb9 = document.querySelector('.thumb9');
 
 
-function thumbClick(){
-    main.style.backgroundImage = 'url(' + thumb.src + ')';
-    currentText.textContent = thumb.title + ' ' + thumb.discr;  
-    // currentText.textContent = thumb.title;  
-    // currentText.textContent = thumb.discr;  
+function thumbClick0(){
+    main.style.backgroundImage = 'url(' + thumb0.src + ')';
+    currentText.textContent = thumb0.title + ' ' + thumb0.discr;    
 };
-thumb.addEventListener("click", thumbClick);
+thumb0.addEventListener("click", thumbClick0);
+
+function thumbClick1(){
+    main.style.backgroundImage = 'url(' + thumb1.src + ')';
+    currentText.textContent = thumb1.title + ' ' + thumb1.discr;   
+};
+thumb1.addEventListener("click", thumbClick1);
+
+function thumbClick2(){
+    main.style.backgroundImage = 'url(' + thumb2.src + ')';
+    currentText.textContent = thumb2.title + ' ' + thumb2.discr;    
+};
+thumb2.addEventListener("click", thumbClick2);
+
+function thumbClick3(){
+    main.style.backgroundImage = 'url(' + thumb3.src + ')';
+    currentText.textContent = thumb3.title + ' ' + thumb3.discr;   
+};
+thumb3.addEventListener("click", thumbClick3);
+
+function thumbClick4(){
+    main.style.backgroundImage = 'url(' + thumb4.src + ')';
+    currentText.textContent = thumb4.title + ' ' + thumb4.discr;   
+};
+thumb4.addEventListener("click", thumbClick4);
+
+function thumbClick5(){
+    main.style.backgroundImage = 'url(' + thumb5.src + ')';
+    currentText.textContent = thumb5.title + ' ' + thumb5.discr;   
+};
+thumb5.addEventListener("click", thumbClick5);
+
+function thumbClick6(){
+    main.style.backgroundImage = 'url(' + thumb6.src + ')';
+    currentText.textContent = thumb6.title + ' ' + thumb6.discr;  
+};
+thumb6.addEventListener("click", thumbClick6);
+
+function thumbClick7(){
+    main.style.backgroundImage = 'url(' + thumb7.src + ')';
+    currentText.textContent = thumb7.title + ' ' + thumb7.discr;   
+};
+thumb7.addEventListener("click", thumbClick7);
+
+function thumbClick8(){
+    main.style.backgroundImage = 'url(' + thumb8.src + ')';
+    currentText.textContent = thumb8.title + ' ' + thumb8.discr;   
+};
+thumb8.addEventListener("click", thumbClick8);
+
+function thumbClick9(){
+    main.style.backgroundImage = 'url(' + thumb9.src + ')';
+    currentText.textContent = thumb9.title + ' ' + thumb9.discr;   
+};
+thumb9.addEventListener("click", thumbClick9);
 
 
 
