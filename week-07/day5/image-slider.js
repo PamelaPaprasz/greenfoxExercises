@@ -3,10 +3,10 @@ var allThumb = document.querySelector('.thumblist');
 var leftBut = document.querySelector('.left');
 var rightBut = document.querySelector('.right');
 var currentText = document.querySelector('p');
-// var currentImg = document.querySelector('img');
 var i = -1;
 var t = 0;
 var thumbNth = 0;
+var thumbList = [];
 callImage('cic.jpg');
 callText();
 
@@ -14,85 +14,119 @@ images.forEach(function(element){
     var thumb = document.createElement('img');
     thumb.setAttribute('src', element.img);
     thumb.setAttribute('title', element.title);
-    thumb.setAttribute('discr', element.discr);
+    // thumb.setAttribute('discr', element.discr);
     thumb.setAttribute('number', t++);
-    // thumb.innerHTML = t++;
+    thumb.innerHTML = element.discr;
     thumb.className = 'thumb'+ thumbNth++;
     allThumb.appendChild(thumb);    
 });
 
 var thumbElement = document.querySelectorAll('.thumblist img');
 
+// thumbElement.forEach(function(el){
+//     var thumbP = document.createElement('p');
+//     thumbP. innerHTML = element.discr;
+//     thumbElement.appendChild(thumbP);
+// })
+// var thumbDiscr = document.querySelector('.thumblist img .discr');
+// console.log(thumbDiscr);
 
-var thumb0 = document.querySelector('.thumb0');
-var thumb1 = document.querySelector('.thumb1');
-var thumb2 = document.querySelector('.thumb2');
-var thumb3 = document.querySelector('.thumb3');
-var thumb4 = document.querySelector('.thumb4');
-var thumb5 = document.querySelector('.thumb5');
-var thumb6 = document.querySelector('.thumb6');
-var thumb7 = document.querySelector('.thumb7');
-var thumb8 = document.querySelector('.thumb8');
-var thumb9 = document.querySelector('.thumb9');
+// create a lsit that contains new variables of eacg thumb
+
+// var listThumbs = thumbElement.map(function(element){
+//     return thumb= document.querySelector(element.class);
+// });
+
+// var elems = document.querySelectorAll('select option:checked');
+// var values = Array.prototype.map.call(thumbElement, function(img) {
+//   return img.class;
+// });
+// console.log(values);
+
+thumbList = [
+    thumb0 = document.querySelector('.thumb0'),
+    thumb1 = document.querySelector('.thumb1'),
+    thumb2 = document.querySelector('.thumb2'),
+    thumb3 = document.querySelector('.thumb3'),
+    thumb4 = document.querySelector('.thumb4'),
+    thumb5 = document.querySelector('.thumb5'),
+    thumb6 = document.querySelector('.thumb6'),
+    thumb7 = document.querySelector('.thumb7'),
+    thumb8 = document.querySelector('.thumb8'),
+    thumb9 = document.querySelector('.thumb9')
+]
+
+
 
 
 function thumbClick0(){
-    main.style.backgroundImage = 'url(' + thumb0.src + ')';
-    currentText.textContent = thumb0.title + ' ' + thumb0.discr;    
+    i = 0;
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr; 
 };
 thumb0.addEventListener("click", thumbClick0);
 
 function thumbClick1(){
-    main.style.backgroundImage = 'url(' + thumb1.src + ')';
-    currentText.textContent = thumb1.title + ' ' + thumb1.discr;   
+    i = 1;  
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr;  
 };
 thumb1.addEventListener("click", thumbClick1);
 
 function thumbClick2(){
-    main.style.backgroundImage = 'url(' + thumb2.src + ')';
-    currentText.textContent = thumb2.title + ' ' + thumb2.discr;    
+    i = 2;  
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr; 
 };
 thumb2.addEventListener("click", thumbClick2);
 
 function thumbClick3(){
-    main.style.backgroundImage = 'url(' + thumb3.src + ')';
-    currentText.textContent = thumb3.title + ' ' + thumb3.discr;   
+    i = 3;   
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr; 
 };
 thumb3.addEventListener("click", thumbClick3);
 
 function thumbClick4(){
-    main.style.backgroundImage = 'url(' + thumb4.src + ')';
-    currentText.textContent = thumb4.title + ' ' + thumb4.discr;   
+    i = 4; 
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr;   
 };
 thumb4.addEventListener("click", thumbClick4);
 
 function thumbClick5(){
-    main.style.backgroundImage = 'url(' + thumb5.src + ')';
-    currentText.textContent = thumb5.title + ' ' + thumb5.discr;   
+    i = 5;  
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr; 
 };
 thumb5.addEventListener("click", thumbClick5);
 
 function thumbClick6(){
-    main.style.backgroundImage = 'url(' + thumb6.src + ')';
-    currentText.textContent = thumb6.title + ' ' + thumb6.discr;  
+    i = 6;
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr;  
 };
 thumb6.addEventListener("click", thumbClick6);
 
 function thumbClick7(){
-    main.style.backgroundImage = 'url(' + thumb7.src + ')';
-    currentText.textContent = thumb7.title + ' ' + thumb7.discr;   
+    i = 7;
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr;    
 };
 thumb7.addEventListener("click", thumbClick7);
 
 function thumbClick8(){
-    main.style.backgroundImage = 'url(' + thumb8.src + ')';
-    currentText.textContent = thumb8.title + ' ' + thumb8.discr;   
+    i = 8;
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr;    
 };
 thumb8.addEventListener("click", thumbClick8);
 
+
 function thumbClick9(){
-    main.style.backgroundImage = 'url(' + thumb9.src + ')';
-    currentText.textContent = thumb9.title + ' ' + thumb9.discr;   
+    i = 9;
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentText.textContent = images[i].title + ' ' + images[i].discr;   
 };
 thumb9.addEventListener("click", thumbClick9);
 
