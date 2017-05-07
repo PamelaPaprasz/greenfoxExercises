@@ -18,104 +18,18 @@ images.forEach(function(element){
     allThumb.appendChild(thumb);    
 });
 
-// var thumbElement = document.querySelectorAll('.thumblist img');
 var thumbElement = document.querySelectorAll('.thumb');
 
-
-var thumb0 = document.querySelector('#one');
-var thumb1 = document.querySelector('#two');
-var thumb2 = document.querySelector('#three');
-var thumb3 = document.querySelector('#four');
-var thumb4 = document.querySelector('#five');
-var thumb5 = document.querySelector('#six');
-var thumb6 = document.querySelector('#seven');
-var thumb7 = document.querySelector('#eight');
-var thumb8 = document.querySelector('#nine');
-var thumb9 = document.querySelector('#ten');
-
-
-function thumbClick0(){
-    i = 0;
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr; 
+function thumbClick(event){
+    thumbId = event.target.id;
+    main.style.backgroundImage = 'url(' + images[thumbId].img + ')';
+    currentTitle.textContent = images[thumbId].title;
+    currentText.textContent =  images[thumbId].discr;   
 };
-thumb0.addEventListener("click", thumbClick0);
 
-function thumbClick1(){
-    i = 1;  
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr;  
-};
-thumb1.addEventListener("click", thumbClick1);
-
-function thumbClick2(){
-    i = 2;  
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr; 
-};
-thumb2.addEventListener("click", thumbClick2);
-
-function thumbClick3(){
-    i = 3;   
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr; 
-};
-thumb3.addEventListener("click", thumbClick3);
-
-function thumbClick4(){
-    i = 4; 
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr;   
-};
-thumb4.addEventListener("click", thumbClick4);
-
-function thumbClick5(){
-    i = 5;  
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr; 
-};
-thumb5.addEventListener("click", thumbClick5);
-
-function thumbClick6(){
-    i = 6;
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr;  
-};
-thumb6.addEventListener("click", thumbClick6);
-
-function thumbClick7(){
-    i = 7;
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr;    
-};
-thumb7.addEventListener("click", thumbClick7);
-
-function thumbClick8(){
-    i = 8;
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr;    
-};
-thumb8.addEventListener("click", thumbClick8);
-
-
-function thumbClick9(){
-    i = 9;
-    main.style.backgroundImage = 'url(' + images[i].img + ')';
-    currentTitle.textContent = images[i].title;
-    currentText.textContent = images[i].discr;   
-};
-thumb9.addEventListener("click", thumbClick9);
-
-
+thumbElement.forEach(function(thumb) {
+  thumb.addEventListener('click', thumbClick);
+});
 
 
 function callImage(url = false){
@@ -159,43 +73,4 @@ function callNext(){
 rightBut.addEventListener('click', callNext);
 
 
-
-// 
-// function thumbClick(event){
-//      var oneOfThumbs = event.target.allThumb;
-//     
-//     if ( oneOfThumbs.contains('#one') ){
-//         i = 0;    
-//     } else if ( oneOfThumbs.contains('#two') ){
-//         i = 1;    
-//     } else if ( oneOfThumbs.contains('#three') ){
-//         i = 2;    
-//     } else if ( oneOfThumbs.contains('#four') ){
-//         i = 3;    
-//     } else if ( oneOfThumbs.contains('#five') ){
-//         i = 4;    
-//     } else if ( oneOfThumbs.contains('#six') ){
-//         i = 5;    
-//     } else if ( oneOfThumbs.contains('#seven') ){
-//         i = 6;    
-//     } else if ( oneOfThumbs.contains('#eight') ){
-//         i = 7;    
-//     } else if ( oneOfThumbs.contains('#nine') ){
-//         i = 8;    
-//     } else if ( oneOfThumbs.contains('#ten') ){
-//         i = 9;    
-//     };
-//     main.style.backgroundImage = 'url(' + images[i].img + ')';
-//     currentText.textContent = images[i].title + ' ' + images[i].discr;   
-// };
-// 
-// 
-// thumbElement.forEach(function(thumb) {
-//   thumb.addEventListener('click', thumbClick);
-// });
-
-// allThumb.addEventListener('click', thumbClick);
-
-// thumbElement.addEventListener('click', thumbClick);
-// thumbElement.onclick = thumbClick;
 
