@@ -22,6 +22,7 @@ var thumbElement = document.querySelectorAll('.thumb');
 
 function thumbClick(event){
     thumbId = event.target.id;
+    i = thumbId;
     main.style.backgroundImage = 'url(' + images[thumbId].img + ')';
     currentTitle.textContent = images[thumbId].title;
     currentText.textContent =  images[thumbId].discr;   
