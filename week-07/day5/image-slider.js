@@ -9,11 +9,11 @@ var thumbNth = 0;
 callImage('cic.jpg');
 callText();
 
-images.forEach(function(element){
+images.forEach(function(element, index){
     var thumb = document.createElement('img');
     thumb.setAttribute('src', element.img);
     thumb.setAttribute('title', element.title);
-    thumb.setAttribute('id', element.id);
+    thumb.setAttribute('id', index);
     thumb.className = 'thumb'+ ' ' + thumbNth++;
     allThumb.appendChild(thumb);    
 });
@@ -21,15 +21,15 @@ images.forEach(function(element){
 var thumbElement = document.querySelectorAll('.thumb');
 
 function thumbClick(event){
-    thumbId = event.target.id;
-    i = thumbId;
-    main.style.backgroundImage = 'url(' + images[thumbId].img + ')';
-    currentTitle.textContent = images[thumbId].title;
-    currentText.textContent =  images[thumbId].discr;   
+    i =  parseInt(event.target.id);
+    console.log(i);
+    main.style.backgroundImage = 'url(' + images[i].img + ')';
+    currentTitle.textContent = images[i].title;
+    currentText.textContent =  images[i].discr;
 };
 
 thumbElement.forEach(function(thumb) {
-  thumb.addEventListener('click', thumbClick);
+    thumb.addEventListener('click', thumbClick);
 });
 
 
@@ -49,29 +49,40 @@ function callText(){
 };
 
 
-function callPrev(){  
+function callPrev(){ 
     if (i === 0 || i === -1){
         i = images.length-1;
     } else{
         i--;    
     }; 
+    console.log(thumbId);
+    console.log(i);
     callImage();
     callText();
-    // currentImg.setAttribute('src', images[i].img);
 };
 leftBut.addEventListener('click', callPrev);
 
 
 function callNext(){
     if (i === images.length-1){
+        console.log(i);
         i = 0;
     } else{
         i++;
     };
+    console.log(i);
     callImage();
     callText();
 };
 rightBut.addEventListener('click', callNext);
+
+
+
+
+
+
+
+
 
 
 
