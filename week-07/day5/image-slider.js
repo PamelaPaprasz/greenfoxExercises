@@ -55,8 +55,6 @@ function callPrev(){
     } else{
         i--;    
     }; 
-    console.log(thumbId);
-    console.log(i);
     callImage();
     callText();
 };
@@ -70,7 +68,6 @@ function callNext(){
     } else{
         i++;
     };
-    console.log(i);
     callImage();
     callText();
 };
