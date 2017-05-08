@@ -13,24 +13,21 @@ images.forEach(function(element, index){
     var thumb = document.createElement('img');
     thumb.setAttribute('src', element.img);
     thumb.setAttribute('title', element.title);
-    thumb.setAttribute('id', index);
-    thumb.className = 'thumb'+ ' ' + thumbNth++;
+    thumb.className = 'thumb';
+    thumb.addEventListener('click', function(){
+        thumbClick(index);
+    });
     allThumb.appendChild(thumb);    
 });
 
 var thumbElement = document.querySelectorAll('.thumb');
 
-function thumbClick(event){
-    i =  parseInt(event.target.id);
-    console.log(i);
+function thumbClick(index){
+    i = index;
     main.style.backgroundImage = 'url(' + images[i].img + ')';
     currentTitle.textContent = images[i].title;
     currentText.textContent =  images[i].discr;
 };
-
-thumbElement.forEach(function(thumb) {
-    thumb.addEventListener('click', thumbClick);
-});
 
 
 function callImage(url = false){
