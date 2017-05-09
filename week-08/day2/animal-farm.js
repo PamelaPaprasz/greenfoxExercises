@@ -18,14 +18,14 @@ function Animal(name){
     this.hunger = 50,
     this.thirst = 50,
     this.eat = function(){
-        this.hunger++;
+        this.hunger--;
     }
     this.drink = function(){
-        this.thirst++;
+        this.thirst--;
     }
     this.play = function(){
-        this.hunger--;
-        this.thirst--;
+        this.hunger++;
+        this.thirst++;
         return [this.hunger, this.thirst];
     }
 }
