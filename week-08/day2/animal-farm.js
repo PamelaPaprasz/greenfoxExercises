@@ -41,11 +41,23 @@ function Farm(){
             this.freePlace--;
         }
     }
+    // this.slaughter = function(){
+    //     this.animalList.sort(function(a, b){
+    //         return a.hunger - b.hunger;
+    //     });
+    //     this.animalList.shift();
+    //     return this.animalList;
+    // }
     this.slaughter = function(){
-        this.animalList.sort(function(a, b){
-            return a.hunger - b.hunger;
-        });
-        this.animalList.shift();
+        lessHungry = this.animalList[0];
+        var lessHungryIndex = 0;
+        for (var i = 0; i<this.animalList.length; i++){
+            if (lessHungry.hunger > this.animalList[i].hunger){
+                lessHungry = this.animalList[i];
+                lessHungryIndex = i
+            }
+        }
+        this.animalList.splice(lessHungryIndex, 1);
         return this.animalList;
     }
 }
@@ -55,6 +67,9 @@ farm1.breed('ancsi');
 farm1.breed('putyi');
 farm1.breed('cica');
 farm1.breed('lala');
+farm1.animalList[2].eat();
+farm1.animalList[1].drink();
+farm1.animalList[3].drink();
 farm1.animalList[1].play();
 farm1.animalList[1].play();
 farm1.animalList[1].play();
