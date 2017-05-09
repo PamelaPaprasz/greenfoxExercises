@@ -29,13 +29,13 @@ console.log(car.refill(45));
 
 var station = {
     petrolStorage: 3000,
-    provide: function(){
-        var consumedPetrol = car.refill(45);
+    provide: function(someCar, amount){
+        var consumedPetrol = car.refill(amount);
         return this.petrolStorage - consumedPetrol;
     }
 }
 
-console.log(station.provide(car));
+console.log(station.provide(car, 45));
 console.log(car.petrolLevel);
 console.log(station.petrolStorage);
 
