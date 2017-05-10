@@ -3,12 +3,12 @@
 var button = document.querySelector('button');
 var text = document.querySelector('p');
 
-var printInnerHtml = function(){
+var addParagraphText = function(){
     text.textContent = '2 seconds ellapsed';
 }
 
 var delayPrint = function(){
-    setTimeout(printInnerHtml, 2000)
+    setTimeout(addParagraphText, 2000)
 }
 
 button.addEventListener('click', delayPrint);
