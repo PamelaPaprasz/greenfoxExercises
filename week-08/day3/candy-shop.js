@@ -5,6 +5,7 @@ var lollypop = document.querySelector('.lollypops');
 var candyRain = document.querySelector('.candy-machine');
 var candyNumber = 0;
 var lollypopNumber = lollypop.innerHTML.length /2;
+var rainOnOff = 0;
 console.log(typeof lollypopNumber);
 
 
@@ -16,8 +17,8 @@ createCandyBut.addEventListener('click', candyMaker);
 
 
  var buyLoll = function(){
-     if (candyNumber >= 100){
-         candyNumber -= 100;
+     if (candyNumber >= 10){
+         candyNumber -= 10;
          candy.innerHTML = candyNumber;
          lollypop.innerHTML += '🍭';
          lollypopNumber += 1;
@@ -34,7 +35,8 @@ var candyGenerator = function(){
         candy.innerHTML = candyNumber;
     }
 }
-setInterval(candyGenerator, 1000)
+var candyGeneratorOn = setInterval(candyGenerator, 1000)
+
 
 var rainMaker = function(){
     if (lollypopNumber >= 10){
@@ -44,7 +46,15 @@ var rainMaker = function(){
     }
 }
 
-var rainingCandy = function(){    
-    setInterval(rainMaker, 100);    
+
+var rainingCandy = function(){
+    rainOnOff += 1;
+    if (rainOnOff %2 !== 0){
+        clearInterval(candyGeneratorOn);
+        candyGeneratorOn = setInterval(rainMaker, 100); 
+    } else{
+        clearInterval(candyGeneratorOn);
+        candyGeneratorOn = setInterval(candyGenerator, 1000);
+    }        
 }
 candyRain.addEventListener('click', rainingCandy);  
