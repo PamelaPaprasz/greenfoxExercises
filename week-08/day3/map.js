@@ -21,6 +21,7 @@ var eCounter = fruits.map(function(element){
 }) 
 
 console.log(eCounter);
+
 // Create a new array of consists numbers that shows how many times the 'e' letter
 // occurs in the word stored under the same index at the fruits array!
 // Please use the map method.
