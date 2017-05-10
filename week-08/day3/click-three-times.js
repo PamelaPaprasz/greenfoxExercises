@@ -3,21 +3,14 @@
 var button = document.querySelector('button');
 var text = document.querySelector('p');
 
-var click = 0;
+var click = -1;
 
 var clickCounter = function(){
-    click++;
-    delayPrint();
-}
-
-var helper = function(){
-    if (click === 3){
+    click++;   
+    if (click >= 3){
         text.textContent = '5 seconds ellapsed and clicked 3 times';
     }
 }
 
-var delayPrint = function(){
-    setTimeout(helper, 5000)
-}
-
-button.addEventListener('click', clickCounter);
+button.addEventListener('click', clickCounter);    
+setTimeout(clickCounter, 5000)
