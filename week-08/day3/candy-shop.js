@@ -15,8 +15,8 @@ createCandyBut.addEventListener('click', candyMaker);
 
 
  var buyLoll = function(){
-     if (candyNumber >= 10){
-         candyNumber -= 10;
+     if (candyNumber >= 100){
+         candyNumber -= 100;
          candy.innerHTML = candyNumber;
          lollypop.innerHTML += '🍭';
          lollypopNumber += 1;
@@ -30,7 +30,7 @@ var candyGenerator = function(){
     if (lollypopNumber >= 10){
         var lol = Math.floor(lollypopNumber / 10);
         candyNumber += lol;
-        candy.innerHTML = candyNumber;        
+        candy.innerHTML = candyNumber;
     }
 }
 
