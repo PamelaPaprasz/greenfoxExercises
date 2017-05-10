@@ -5,14 +5,10 @@
 
 var selectLastEvenNumber = function(someArray, callback){
     someArray.reverse();
-    var lastEven = 0;
-    for (var i = 0; i < someArray.length; i++){
-        if (someArray[i] %2 === 0){
-            lastEven = someArray[i];
-            break;
-        }    
-    }
-    callback(lastEven);
+    var evens = someArray.filter(function (number){
+        return number %2 === 0;
+    })
+    callback(evens[0]);
 }
 
 function printNumber(num) {
