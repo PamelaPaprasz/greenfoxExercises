@@ -3,7 +3,7 @@ var container = document.querySelector('div');
 var allImages = document.querySelectorAll('img');
 var gifOnOff = 0;
 
-dolphin.open('GET', 'http://api.giphy.com/v1/gifs/search?q=dolphin&api_key=dc6zaTOxFJmzC', true);
+dolphin.open('GET', 'http://api.giphy.com/v1/gifs/search?q=gif+art&api_key=dc6zaTOxFJmzC', true);
 dolphin.send();
 
 dolphin.onreadystatechange = function(){
