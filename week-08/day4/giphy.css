@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    background: black;
+}
+div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    background: red;
+}
+
+img {
+    margin: 1vw;
+}
