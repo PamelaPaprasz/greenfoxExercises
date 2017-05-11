@@ -1,0 +1,29 @@
+body {
+    background: linear-gradient(135deg, #5AD, #FACADE, #D3F3C8, #0FF, #BAD, #DECADE);
+}
+
+.main {
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+div {
+    margin: 1vw;
+}
+
+h1 {
+    font-size: 24px;
+    color: #C47;
+    margin-bottom: 1vw;
+}
+
+p {
+    margin-bottom: 0.4vw;
+    color: #C1A;
+}
+
+a {
+    color: #5CA1E5;
+}
