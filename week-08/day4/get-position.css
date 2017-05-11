@@ -1,0 +1,63 @@
+body {
+    background: #FEE;    
+}
+
+.main{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 3vw;
+}
+
+.label {
+    width: 30vw;
+    margin-bottom: 1.5vw;
+    font-size: 28px;
+    color: #0FF1CE;
+    font-weight: 900;
+}
+
+.input {
+    padding: 2vw;
+    border: 35px solid #ABD1C8;
+    font-size: 24px;
+    color: #CABBA6;
+    font-weight: 700;
+    margin-right: 3vw;
+    width: 17.5vw;
+    background: #FEE;
+    /*margin-left: 2vw;*/
+}
+
+.send {
+    width: 22vw;
+    height: 10vw;
+    margin-top: 2.5vw;
+    background: #F4C4D3;
+    color: #9EE;
+    font-weight: bold;
+    font-size: 29px;
+    border-radius: 80px;
+    border: 10px solid #ABCDEF;
+}
+
+li {
+    width: 2vw;
+    height: 2vw;
+    margin-left: 15vw;
+    margin-top: 1vw;
+}
+
+p {
+    margin-top: 2.5vw;
+    margin-left: 8vw;
+    font-size: 19px;
+    background: #E1FFE1;
+    width: 11vw;
+    height: 2vw;
+    padding-left: 7vw;
+    padding-top: 1vw;
+    border: 3px solid #AC7;
+    color: #FA7;
+    font-weight: 600;
+}
