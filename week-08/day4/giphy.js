@@ -9,7 +9,8 @@ dolphin.send();
 dolphin.onreadystatechange = function(){
     if (dolphin.readyState === 4 && dolphin.status === 200){
         var dolphinDatas = JSON.parse(dolphin.response);
-        createDolphin(dolphinDatas.data);
+        var first16Dolphins = dolphinDatas.data.slice(0, 16);
+        createDolphin(first16Dolphins);
     }       
 }
 
