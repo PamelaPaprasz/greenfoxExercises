@@ -12,8 +12,14 @@ div {
     margin-right: 20vw;
     background: #EB01A5;
     width: 900px;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
 }
 
 img {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
     margin: 1vw;
+    width: 25vw;
+    height: 25vw;
 }
