@@ -1,17 +1,20 @@
-body {
+/*body {
     display: flex;
-}
+    flex-direction: column;
+}*/
 
 .article {
-    height: 10vw;
+    /*height: 10vw;*/
     width: auto;
     padding-left: 70px;
     margin: 10px;
+    position: relative;
+    margin-bottom: 40px;
 }
 
 .rank {
     position: absolute;
-    top: 30px;
+    top: 25px;
     left: 10px;
     font-size: 20px;
 }
@@ -21,13 +24,13 @@ body {
     width: 30px;
     height: 15px;
     left: 30px;
-    top: 34px;
+    top: 29px;
 }
 
 img {
     position: absolute;
     left: 35px;
-    top: 20px;
+    top: 15px;
 }
 
 .downvote {
