@@ -1,0 +1,49 @@
+body {
+    display: flex;
+}
+
+.article {
+    height: 10vw;
+    width: auto;
+    padding-left: 70px;
+    margin: 10px;
+}
+
+.rank {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    font-size: 20px;
+}
+
+.vote {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    left: 30px;
+    top: 34px;
+}
+
+img {
+    position: absolute;
+    left: 35px;
+    top: 20px;
+}
+
+.downvote {
+    margin-top: 30px;
+}
+
+a {
+    display: block;
+}
+
+.info {
+    display: block;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 5px;
+    margin-right: 5px;
+}
