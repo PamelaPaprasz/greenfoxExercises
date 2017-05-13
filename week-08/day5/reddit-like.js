@@ -29,7 +29,7 @@ var postCreator = function(dataFromServer){
         
         var voteNumber = document.createElement('div');
         voteNumber.setAttribute('class', 'vote')
-        voteNumber.innerHTML = 0289;
+        voteNumber.innerHTML = 0;
         article.appendChild(voteNumber);
         
         var downArrow = document.createElement('img');
@@ -56,12 +56,14 @@ var postCreator = function(dataFromServer){
         remove.setAttribute('class', 'remove');
         remove.innerHTML = 'remove';
         article.appendChild(remove);   
+        // setTimeout(reloadPage, 500);
         
         remove.addEventListener('click', function(){
-		var url = 'https://time-radish.glitch.me/posts/'+ id;
 		var xhrSend = new XMLHttpRequest();
+        var url = 'https://time-radish.glitch.me/posts/'+ id;
+        method = 'DELETE';
 
-		xhrSend.open('DELETE', url, true);
+		xhrSend.open(method, url, true);
 
 		xhrSend.setRequestHeader('Accept', 'application/json')
 		xhrSend.send(); 
@@ -69,11 +71,12 @@ var postCreator = function(dataFromServer){
 		setTimeout(reloadPage, 500);
         })
     })
+    // setTimeout(reloadPage, 1000);
 }
 
 
 function getFromServer(callback) {
-	var xhr = new XMLHttpRequest(),
+	var xhr = new XMLHttpRequest();
 	method = "GET";
 
 	xhr.open(method, 'https://time-radish.glitch.me/posts', true);
@@ -90,8 +93,88 @@ function getFromServer(callback) {
 	xhr.send();
 }
 
+var displayNewPost = function(lastPostData){
+    classNumber++;
+    id = lastPostData.id;
+    var article = document.createElement('article');
+    article.setAttribute('class', 'article');
+    body.appendChild(article);    
+    
+    var rank = document.createElement('div');
+    rank.setAttribute('class', 'rank');
+    rank.innerHTML = classNumber;
+    article.appendChild(rank);
+    
+    var upArrow = document.createElement('img');
+    upArrow.setAttribute('src', 'upvote.png');
+    upArrow.setAttribute('class', 'upvote');
+    article.appendChild(upArrow);
+    
+    var voteNumber = document.createElement('div');
+    voteNumber.setAttribute('class', 'vote')
+    voteNumber.innerHTML = 0;
+    article.appendChild(voteNumber);
+    
+    var downArrow = document.createElement('img');
+    downArrow.setAttribute('src', 'downvote.png');
+    downArrow.setAttribute('class', 'downvote');
+    article.appendChild(downArrow);
+    
+    var title = document.createElement('a');
+    title.setAttribute('href', lastPostData.href);
+    title.innerHTML = lastPostData.title;
+    article.appendChild(title);
+    
+    var articleInfo = document.createElement('div');
+    articleInfo.setAttribute('class', 'info');
+    articleInfo.innerHTML = lastPostData.timestamp + ' ' + lastPostData.owner;
+    article.appendChild(articleInfo);
+    
+    var modify = document.createElement('button');
+    modify.setAttribute('class', 'modify'); 
+    modify.innerHTML = 'modify';
+    article.appendChild(modify);
+    
+    var remove = document.createElement('button');
+    remove.setAttribute('class', 'remove');
+    remove.innerHTML = 'remove';
+    article.appendChild(remove);   
+    // setTimeout(reloadPage, 500);
+    
+    remove.addEventListener('click', function(){
+    var xhrSend = new XMLHttpRequest();
+    var url = 'https://time-radish.glitch.me/posts/'+ id;
+    method = 'DELETE';
+
+    xhrSend.open(method, url, true);
+
+    xhrSend.setRequestHeader('Accept', 'application/json')
+    xhrSend.send(); 
+    setTimeout(reloadPage, 500);
+    })
+    setTimeout(reloadPage, 500);
+}
+
+function getNewPostFromServer() {
+	var xhr = new XMLHttpRequest();
+	method = "GET";
+
+	xhr.open(method, 'https://time-radish.glitch.me/posts', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Accept', 'application/json');
+
+	xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200){
+            var requestedData = JSON.parse(xhr.response);
+            var lastPostData = requestedData.posts[requestedData.posts.length -1];
+            displayNewPost(lastPostData);
+		}
+	}
+	xhr.send();
+}
+
 function postToServer(givenTitle, givenUrl, callback) {
-	var xhr = new XMLHttpRequest(),
+	var xhr = new XMLHttpRequest();
 	method = "POST";
 
 	xhr.open(method, 'https://time-radish.glitch.me/posts', true);
@@ -144,15 +227,10 @@ var postFormCreator = function(){
     postFormContainer.appendChild(sendPostBut);
     
     sendPostBut.addEventListener('click', function(){
-        postToServer(newUrlInput.value, newTitleInput.value, getFromServer);
-        newUrlLabel.style.display = 'none';
-        newUrlInput.style.display = 'none';
-        newTitleLabel.style.display = 'none';
-        newTitleInput.style.display = 'none';
-        sendPostBut.style.display = 'none';
+        postToServer(newTitleInput.value, newUrlInput.value, getNewPostFromServer);
+        postFormContainer.style.display = 'none';
     });
 }
-
 
 newPostBut.addEventListener('click', postFormCreator);
 getFromServer(postCreator);
