@@ -41,8 +41,7 @@ function getNewPostFromServer(callback) {
 	xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
             var requestedData = JSON.parse(xhr.response);
-            var lastPostData = [];
-            lastPostData.push(requestedData.posts[requestedData.posts.length -1]);
+            var lastPostData = requestedData.posts[requestedData.posts.length -1];
             console.log(lastPostData);
             callback(lastPostData);
 		}
@@ -61,7 +60,7 @@ function postToServer(givenTitle, givenUrl, callback) {
 	xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
             var requestedData = JSON.parse(xhr.response);
-            callback(postCreator);
+            callback(newPostCreator);
 		}
 	}
     var data = {
