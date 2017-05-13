@@ -1,12 +1,18 @@
 var classNumber = 0;
 var requestedData;
+var id;
 var body = document.querySelector('body');
 var postFormContainer = document.querySelector('.post-form-container');
 var newPostBut = document.querySelector('.new-post');
 
+var reloadPage = function(){
+    document.location.href = 'file:///D:/greenfox/PamelaPaprasz/week-08/day5/reddit-like.html';
+}
+
 var postCreator = function(dataFromServer){
     dataFromServer.posts.forEach(function(element){
         classNumber++;
+        id = element.id;
         var article = document.createElement('article');
         article.setAttribute('class', 'article');
         body.appendChild(article);    
@@ -49,7 +55,19 @@ var postCreator = function(dataFromServer){
         var remove = document.createElement('button');
         remove.setAttribute('class', 'remove');
         remove.innerHTML = 'remove';
-        article.appendChild(remove);    
+        article.appendChild(remove);   
+        
+        remove.addEventListener('click', function(){
+		var url = 'https://time-radish.glitch.me/posts/'+ id;
+		var xhrSend = new XMLHttpRequest();
+
+		xhrSend.open('DELETE', url, true);
+
+		xhrSend.setRequestHeader('Accept', 'application/json')
+		xhrSend.send(); 
+        // article.style.display = 'none';
+		setTimeout(reloadPage, 500);
+        })
     })
 }
 
@@ -122,13 +140,18 @@ var postFormCreator = function(){
     
     var sendPostBut = document.createElement('button');
     sendPostBut.setAttribute('class', 'send-post');
+    sendPostBut.innerHTML = 'submit';
     postFormContainer.appendChild(sendPostBut);
     
     sendPostBut.addEventListener('click', function(){
         postToServer(newUrlInput.value, newTitleInput.value, getFromServer);
+        newUrlLabel.style.display = 'none';
+        newUrlInput.style.display = 'none';
+        newTitleLabel.style.display = 'none';
+        newTitleInput.style.display = 'none';
+        sendPostBut.style.display = 'none';
     });
 }
-
 
 
 newPostBut.addEventListener('click', postFormCreator);
