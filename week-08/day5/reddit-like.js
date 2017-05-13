@@ -9,69 +9,6 @@ var reloadPage = function(){
     document.location.href = 'file:///D:/greenfox/PamelaPaprasz/week-08/day5/reddit-like.html';
 }
 
-var postCreator = function(dataFromServer){
-    dataFromServer.posts.forEach(function(element){
-        classNumber++;
-        id = element.id;
-        var article = document.createElement('article');
-        article.setAttribute('class', 'article');
-        body.appendChild(article);    
-        
-        var rank = document.createElement('div');
-        rank.setAttribute('class', 'rank');
-        rank.innerHTML = classNumber;
-        article.appendChild(rank);
-        
-        var upArrow = document.createElement('img');
-        upArrow.setAttribute('src', 'upvote.png');
-        upArrow.setAttribute('class', 'upvote');
-        article.appendChild(upArrow);
-        
-        var voteNumber = document.createElement('div');
-        voteNumber.setAttribute('class', 'vote')
-        voteNumber.innerHTML = 0;
-        article.appendChild(voteNumber);
-        
-        var downArrow = document.createElement('img');
-        downArrow.setAttribute('src', 'downvote.png');
-        downArrow.setAttribute('class', 'downvote');
-        article.appendChild(downArrow);
-        
-        var title = document.createElement('a');
-        title.setAttribute('href', element.href);
-        title.innerHTML = element.title;
-        article.appendChild(title);
-        
-        var articleInfo = document.createElement('div');
-        articleInfo.setAttribute('class', 'info');
-        articleInfo.innerHTML = element.timestamp + ' ' + element.owner;
-        article.appendChild(articleInfo);
-        
-        var modify = document.createElement('button');
-        modify.setAttribute('class', 'modify'); 
-        modify.innerHTML = 'modify';
-        article.appendChild(modify);
-        
-        var remove = document.createElement('button');
-        remove.setAttribute('class', 'remove');
-        remove.innerHTML = 'remove';
-        article.appendChild(remove);   
-        // setTimeout(reloadPage, 500);
-        
-        remove.addEventListener('click', function(){
-            var xhrSend = new XMLHttpRequest();
-            var url = 'https://time-radish.glitch.me/posts/'+ id;
-            method = 'DELETE';
-            
-            xhrSend.open(method, url, true);
-
-		    xhrSend.setRequestHeader('Accept', 'application/json');
-		    xhrSend.send(); 
-		    setTimeout(reloadPage, 500);
-        });
-    });
-}
-
 
 function getFromServer(callback) {
 	var xhr = new XMLHttpRequest();
@@ -84,6 +21,7 @@ function getFromServer(callback) {
 	xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
             var requestedData = JSON.parse(xhr.response);
+            requestedData = requestedData.posts;
             console.log(requestedData);
             callback(requestedData);
 		}
@@ -91,68 +29,8 @@ function getFromServer(callback) {
 	xhr.send();
 }
 
-var displayNewPost = function(lastPostData){
-    classNumber++;
-    id = lastPostData.id;
-    var article = document.createElement('article');
-    article.setAttribute('class', 'article');
-    body.appendChild(article);    
-    
-    var rank = document.createElement('div');
-    rank.setAttribute('class', 'rank');
-    rank.innerHTML = classNumber;
-    article.appendChild(rank);
-    
-    var upArrow = document.createElement('img');
-    upArrow.setAttribute('src', 'upvote.png');
-    upArrow.setAttribute('class', 'upvote');
-    article.appendChild(upArrow);
-    
-    var voteNumber = document.createElement('div');
-    voteNumber.setAttribute('class', 'vote')
-    voteNumber.innerHTML = 0;
-    article.appendChild(voteNumber);
-    
-    var downArrow = document.createElement('img');
-    downArrow.setAttribute('src', 'downvote.png');
-    downArrow.setAttribute('class', 'downvote');
-    article.appendChild(downArrow);
-    
-    var title = document.createElement('a');
-    title.setAttribute('href', lastPostData.href);
-    title.innerHTML = lastPostData.title;
-    article.appendChild(title);
-    
-    var articleInfo = document.createElement('div');
-    articleInfo.setAttribute('class', 'info');
-    articleInfo.innerHTML = lastPostData.timestamp + ' ' + lastPostData.owner;
-    article.appendChild(articleInfo);
-    
-    var modify = document.createElement('button');
-    modify.setAttribute('class', 'modify'); 
-    modify.innerHTML = 'modify';
-    article.appendChild(modify);
-    
-    var remove = document.createElement('button');
-    remove.setAttribute('class', 'remove');
-    remove.innerHTML = 'remove';
-    article.appendChild(remove);   
-    
-    remove.addEventListener('click', function(){
-        var xhrSend = new XMLHttpRequest();
-        var url = 'https://time-radish.glitch.me/posts/'+ id;
-        method = 'DELETE';
 
-        xhrSend.open(method, url, true);
-
-        xhrSend.setRequestHeader('Accept', 'application/json')
-        xhrSend.send(); 
-        setTimeout(reloadPage, 500);
-    });
-    setTimeout(reloadPage, 500);
-}
-
-function getNewPostFromServer() {
+function getNewPostFromServer(callback) {
 	var xhr = new XMLHttpRequest();
 	method = "GET";
 
@@ -163,8 +41,10 @@ function getNewPostFromServer() {
 	xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
             var requestedData = JSON.parse(xhr.response);
-            var lastPostData = requestedData.posts[requestedData.posts.length -1];
-            displayNewPost(lastPostData);
+            var lastPostData = [];
+            lastPostData.push(requestedData.posts[requestedData.posts.length -1]);
+            console.log(lastPostData);
+            callback(lastPostData);
 		}
 	}
 	xhr.send();
@@ -198,7 +78,7 @@ var dateAndTimeDesign = function(){
     return timePassedBy;
 }
 
-var postFormCreator = function(){
+var postForm = function(){
     
     var newUrlLabel = document.createElement('label');
     newUrlLabel.setAttribute('class', 'url-label');
@@ -229,5 +109,5 @@ var postFormCreator = function(){
     });
 }
 
-newPostBut.addEventListener('click', postFormCreator);
+newPostBut.addEventListener('click', postForm);
 getFromServer(postCreator);
