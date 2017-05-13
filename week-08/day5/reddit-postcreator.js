@@ -45,7 +45,6 @@ var postCreator = function(dataFromServer){
         remove.setAttribute('class', 'remove');
         remove.innerHTML = 'remove';
         article.appendChild(remove);   
-        // setTimeout(reloadPage, 500);
         
         upArrow.addEventListener('click', function(){
     
@@ -99,3 +98,20 @@ var postCreator = function(dataFromServer){
         });
     });
 }
+
+// setTimeout(reloadPage, 500);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
