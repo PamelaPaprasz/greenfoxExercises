@@ -1,10 +1,5 @@
-/*body {
-    display: flex;
-    flex-direction: column;
-}*/
 
 .article {
-    /*height: 10vw;*/
     width: auto;
     padding-left: 70px;
     margin: 10px;
@@ -20,11 +15,13 @@
 }
 
 .vote {
+    display: flex;
     position: absolute;
     width: 30px;
     height: 15px;
     left: 30px;
     top: 29px;
+    align-self: center;
 }
 
 img {
