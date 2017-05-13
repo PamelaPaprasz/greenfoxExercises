@@ -59,19 +59,17 @@ var postCreator = function(dataFromServer){
         // setTimeout(reloadPage, 500);
         
         remove.addEventListener('click', function(){
-		var xhrSend = new XMLHttpRequest();
-        var url = 'https://time-radish.glitch.me/posts/'+ id;
-        method = 'DELETE';
+            var xhrSend = new XMLHttpRequest();
+            var url = 'https://time-radish.glitch.me/posts/'+ id;
+            method = 'DELETE';
+            
+            xhrSend.open(method, url, true);
 
-		xhrSend.open(method, url, true);
-
-		xhrSend.setRequestHeader('Accept', 'application/json')
-		xhrSend.send(); 
-        // article.style.display = 'none';
-		setTimeout(reloadPage, 500);
-        })
-    })
-    // setTimeout(reloadPage, 1000);
+		    xhrSend.setRequestHeader('Accept', 'application/json');
+		    xhrSend.send(); 
+		    setTimeout(reloadPage, 500);
+        });
+    });
 }
 
 
@@ -139,19 +137,18 @@ var displayNewPost = function(lastPostData){
     remove.setAttribute('class', 'remove');
     remove.innerHTML = 'remove';
     article.appendChild(remove);   
-    // setTimeout(reloadPage, 500);
     
     remove.addEventListener('click', function(){
-    var xhrSend = new XMLHttpRequest();
-    var url = 'https://time-radish.glitch.me/posts/'+ id;
-    method = 'DELETE';
+        var xhrSend = new XMLHttpRequest();
+        var url = 'https://time-radish.glitch.me/posts/'+ id;
+        method = 'DELETE';
 
-    xhrSend.open(method, url, true);
+        xhrSend.open(method, url, true);
 
-    xhrSend.setRequestHeader('Accept', 'application/json')
-    xhrSend.send(); 
-    setTimeout(reloadPage, 500);
-    })
+        xhrSend.setRequestHeader('Accept', 'application/json')
+        xhrSend.send(); 
+        setTimeout(reloadPage, 500);
+    });
     setTimeout(reloadPage, 500);
 }
 
