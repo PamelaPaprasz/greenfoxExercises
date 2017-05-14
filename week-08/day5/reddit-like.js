@@ -80,22 +80,37 @@ var dateAndTimeDesign = function(){
 var postForm = function(){
     
     var newUrlLabel = document.createElement('label');
-    newUrlLabel.setAttribute('class', 'url-label');
+    newUrlLabel.setAttribute('class', 'label');
     newUrlLabel.innerHTML = 'Url';
     postFormContainer.appendChild(newUrlLabel);
     
     var newUrlInput = document.createElement('input');
-    newUrlInput.setAttribute('class', 'url-input')
+    newUrlInput.setAttribute('class', 'input')
     postFormContainer.appendChild(newUrlInput);
     
     var newTitleLabel = document.createElement('label');
-    newTitleLabel.setAttribute('class', 'title-label');
+    newTitleLabel.setAttribute('class', 'label');
     newTitleLabel.innerHTML = 'Title';
     postFormContainer.appendChild(newTitleLabel);
     
     var newTitleInput = document.createElement('input');
-    newTitleInput.setAttribute('class', 'title-input');
+    newTitleInput.setAttribute('class', 'input');
     postFormContainer.appendChild(newTitleInput);
+    
+    var options = document.createElement('p');
+    options.setAttribute('class', 'label');
+    options.innerHTML = 'options';
+    postFormContainer.appendChild(options);
+    
+    var checkbox = document.createElement('input');
+    checkbox.setAttribute('class', 'check');
+    checkbox.setAttribute('type', 'checkbox');
+    postFormContainer.appendChild(checkbox);
+    
+    var checkboxLabel = document.createElement('label');
+    checkboxLabel.setAttribute('class', 'check-label');
+    checkboxLabel.innerHTML = 'post as anonymous';
+    postFormContainer.appendChild(checkboxLabel);
     
     var sendPostBut = document.createElement('button');
     sendPostBut.setAttribute('class', 'send-post');
