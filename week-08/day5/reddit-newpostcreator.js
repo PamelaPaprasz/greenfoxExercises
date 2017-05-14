@@ -48,8 +48,8 @@ var newPostCreator = function(element){
     upArrow.addEventListener('click', function(){
 
         var xhr = new XMLHttpRequest();
-        var url = 'https://time-radish.glitch.me/posts/' + element.id;
-        mathod = 'PUT';
+        var url = 'https://fierce-oasis-56268.herokuapp.com/posts/' + id + '/upvote';
+        method = 'PUT';
 
         xhr.open(method, url, true);
         xhr.setRequestHeader('Accept', 'application/json');
@@ -57,18 +57,19 @@ var newPostCreator = function(element){
         voteNumber.innerHTML++;
         upArrow.setAttribute('src', 'upvoted.png');
         
-        var upVoteData = {
-             "score": 1
-        }
-        xhr.send(JSON.stringify(upVoteData));
-        // setTimeout(reloadPage, 500);
+        // var upVoteData = {
+        //      "vote": 1
+        // }
+        // xhr.send(JSON.stringify(upVoteData));
+        xhr.send();
+        setTimeout(reloadPage, 500);
     });
     
     downArrow.addEventListener('click', function(){
 
         var xhr = new XMLHttpRequest();
-        var url = 'https://time-radish.glitch.me/posts/' + element.id;
-        mathod = 'PUT';
+        var url = 'https://fierce-oasis-56268.herokuapp.com/posts/' + id + '/downvote';
+        method = 'PUT';
 
         xhr.open(method, url, true);
         xhr.setRequestHeader('Accept', 'application/json');
@@ -76,17 +77,18 @@ var newPostCreator = function(element){
         voteNumber.innerHTML--;
         downArrow.setAttribute('src', 'downvoted.png');
         
-        var downVoteData = {
-             "score": -1
-        }
-        xhr.send(JSON.stringify(downVoteData));
-        // setTimeout(reloadPage, 500);
+        // var downVoteData = {
+        //      "vote": -1
+        // }
+        // xhr.send(JSON.stringify(downVoteData));
+        xhr.send();
+        setTimeout(reloadPage, 500);
     });
 
     
     remove.addEventListener('click', function(){
         var xhr = new XMLHttpRequest();
-        var url = 'https://time-radish.glitch.me/posts/'+ id;
+        var url = 'https://fierce-oasis-56268.herokuapp.com/posts/'+ id;
         method = 'DELETE';
         
         xhr.open(method, url, true);
