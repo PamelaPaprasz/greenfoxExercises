@@ -14,11 +14,14 @@
 'use strict';
 
 
-var getApple = function(string){
-    return string;
+var apple = {
+    
+    getApple: function(string){
+        return string;
+    }
 }
 
-getApple('apple');
+apple.getApple('apple');
 
-module.exports = getApple;
+module.exports = apple;
 
