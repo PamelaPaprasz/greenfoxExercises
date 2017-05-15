@@ -1,10 +1,13 @@
 var postCreator = function(dataFromServer){
+    articleContainer.innerHTML = '';
+    classNumber = 0;
     dataFromServer.forEach(function(element){
         classNumber++;
         var id = element.id;
+        
         var article = document.createElement('article');
         article.setAttribute('class', 'article');
-        body.appendChild(article);    
+        articleContainer.appendChild(article);    
         
         var rank = document.createElement('div');
         rank.setAttribute('class', 'rank');
@@ -18,7 +21,7 @@ var postCreator = function(dataFromServer){
         
         var voteNumber = document.createElement('div');
         voteNumber.setAttribute('class', 'vote')
-        voteNumber.innerHTML = parseInt(0);
+        voteNumber.innerHTML = element.score;
         article.appendChild(voteNumber);
         
         var downArrow = document.createElement('img');
@@ -47,56 +50,15 @@ var postCreator = function(dataFromServer){
         article.appendChild(remove);   
         
         upArrow.addEventListener('click', function(){
-    
-            var xhr = new XMLHttpRequest();
-            var url = 'https://fierce-oasis-56268.herokuapp.com/posts/' + id + '/upvote';
-            method = 'PUT';
-
-            xhr.open(method, url, true);
-            xhr.setRequestHeader('Accept', 'application/json');
-            
-            voteNumber.innerHTML++;
-            upArrow.setAttribute('src', 'upvoted.png');
-            xhr.send();
-            
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200){
-                    getFromServer(postCreator);
-        		}
-            }
+            upVote(element.id, upArrow);
         });
         
         downArrow.addEventListener('click', function(){
-    
-            var xhr = new XMLHttpRequest();
-            var url = 'https://fierce-oasis-56268.herokuapp.com/posts/' + id + '/downvote';
-            method = 'PUT';
-
-            xhr.open(method, url, true);
-            xhr.setRequestHeader('Accept', 'application/json');
-            
-            voteNumber.innerHTML--;
-            downArrow.setAttribute('src', 'downvoted.png');
-            xhr.send();
-            
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200){
-                    getFromServer(postCreator);
-        		}
-            }
+            downVote(element.id, downArrow);
         });
 
-        
         remove.addEventListener('click', function(){
-            var xhr = new XMLHttpRequest();
-            var url = 'https://fierce-oasis-56268.herokuapp.com/posts/'+ id;
-            method = 'DELETE';
-            
-            xhr.open(method, url, true);
-
-		    xhr.setRequestHeader('Accept', 'application/json');
-		    xhr.send(); 
-		    setTimeout(reloadPage, 500);
+            deleteRemove(element.id);   
         });
     });
 }
