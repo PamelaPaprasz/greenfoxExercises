@@ -2,11 +2,19 @@ var classNumber = 0;
 var requestedData;
 var id;
 var body = document.querySelector('body');
+var articleContainer = document.querySelector('.article-container');
 var postFormContainer = document.querySelector('.post-form-container');
 var newPostBut = document.querySelector('.new-post');
 
-var reloadPage = function(){
-    document.location.href = 'file:///D:/greenfox/PamelaPaprasz/week-08/day5/reddit-like.html';
+// var reloadPage = function(){
+//     document.location.href = 'file:///D:/greenfox/PamelaPaprasz/week-08/day5/reddit-like.html';
+// }
+
+var dateAndTimeDesign = function(){
+    var currentTime = Date.now();
+    var currentSec = parseInt(currentTime / 1000);
+    var timePassedBy = currentSec - requestedData.posts.timestamp;
+    return timePassedBy;
 }
 
 
@@ -30,25 +38,6 @@ function getFromServer(callback) {
 }
 
 
-function getNewPostFromServer(callback) {
-	var xhr = new XMLHttpRequest();
-	method = "GET";
-
-	xhr.open(method, 'https://time-radish.glitch.me/posts', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Accept', 'application/json');
-
-	xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200){
-            var requestedData = JSON.parse(xhr.response);
-            var lastPostData = requestedData.posts[requestedData.posts.length -1];
-            console.log(lastPostData);
-            callback(lastPostData);
-		}
-	}
-	xhr.send();
-}
-
 function postToServer(givenTitle, givenUrl, callback) {
 	var xhr = new XMLHttpRequest();
 	method = "POST";
@@ -60,7 +49,7 @@ function postToServer(givenTitle, givenUrl, callback) {
 	xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
             var requestedData = JSON.parse(xhr.response);
-            callback(newPostCreator);
+            callback(postCreator);
 		}
 	}
     var data = {
@@ -70,14 +59,64 @@ function postToServer(givenTitle, givenUrl, callback) {
 	xhr.send(JSON.stringify(data));
 }
 
-var dateAndTimeDesign = function(){
-    var currentTime = Date.now();
-    var currentSec = parseInt(currentTime / 1000);
-    var timePassedBy = currentSec - requestedData.posts.timestamp;
-    return timePassedBy;
+var upVote = function(id, upArrow){
+    console.log(id);
+    var xhr = new XMLHttpRequest();
+    var url = 'https://time-radish.glitch.me/posts/' + id + '/upvote';
+    method = 'PUT';
+
+    xhr.open(method, url, true);
+    xhr.setRequestHeader('Accept', 'application/json');
+    
+    upArrow.setAttribute('src', 'upvoted.png');
+    xhr.send();
+    
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200){
+            getFromServer(postCreator);
+        }
+    }
+}
+
+var downVote = function(id, downArrow){
+    var xhr = new XMLHttpRequest();
+    var url = 'https://time-radish.glitch.me/posts/' + id + '/downvote';
+    method = 'PUT';
+
+    xhr.open(method, url, true);
+    xhr.setRequestHeader('Accept', 'application/json');
+    
+    downArrow.setAttribute('src', 'downvoted.png');
+    xhr.send();
+    
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200){
+            getFromServer(postCreator);
+        }
+    }
+}
+
+var deleteRemove = function(id){
+    var xhr = new XMLHttpRequest();
+    var url = 'https://time-radish.glitch.me/posts/'+ id;
+    method = 'DELETE';
+    
+    xhr.open(method, url, true);
+
+    xhr.setRequestHeader('Accept', 'application/json');
+    xhr.send(); 
+    
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200){
+            getFromServer(postCreator);
+        }
+    }
 }
 
 var postForm = function(){
+    
+    articleContainer.innerHTML = '';
+    newPostBut.innerHTML = '';
     
     var newUrlLabel = document.createElement('label');
     newUrlLabel.setAttribute('class', 'label');
@@ -118,8 +157,9 @@ var postForm = function(){
     postFormContainer.appendChild(sendPostBut);
     
     sendPostBut.addEventListener('click', function(){
-        postToServer(newTitleInput.value, newUrlInput.value, getNewPostFromServer);
+        postToServer(newTitleInput.value, newUrlInput.value, getFromServer);
         postFormContainer.style.display = 'none';
+        newPostBut.innerHTML = '<button class=\'new-post\'>add new post</button>';
     });
 }
 
