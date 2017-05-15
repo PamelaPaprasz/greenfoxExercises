@@ -1,6 +1,6 @@
 var newPostCreator = function(element){
     classNumber++;
-    id = element.id;
+    var id = element.id;
     var article = document.createElement('article');
     article.setAttribute('class', 'article');
     body.appendChild(article);    
@@ -56,13 +56,13 @@ var newPostCreator = function(element){
         
         voteNumber.innerHTML++;
         upArrow.setAttribute('src', 'upvoted.png');
-        
-        // var upVoteData = {
-        //      "vote": 1
-        // }
-        // xhr.send(JSON.stringify(upVoteData));
         xhr.send();
-        setTimeout(reloadPage, 500);
+        
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200){
+                getFromServer(postCreator);
+    		}
+        }
     });
     
     downArrow.addEventListener('click', function(){
@@ -76,13 +76,13 @@ var newPostCreator = function(element){
         
         voteNumber.innerHTML--;
         downArrow.setAttribute('src', 'downvoted.png');
-        
-        // var downVoteData = {
-        //      "vote": -1
-        // }
-        // xhr.send(JSON.stringify(downVoteData));
         xhr.send();
-        setTimeout(reloadPage, 500);
+        
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200){
+                getFromServer(postCreator);
+    		}
+        }
     });
 
     
