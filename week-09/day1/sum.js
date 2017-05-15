@@ -17,13 +17,37 @@
 
 'use strict';
 
-var sum = function(numList){
-    var sumedList = numList.reduce(function(prev, current){
-        return prev + current;
-    });
-    return sumedList;
+var typeString = function(numList){
+    var stringOrNot = false;
+    numList.forEach(function(element){
+        if (typeof element === 'string'){
+            stringOrNot = true;
+        } 
+    })
+    return stringOrNot;
 }
 
-console.log(sum([1, 2, 3, 4, 5]));
+var sum = function(numList){
+    
+    if (numList === null){
+        throw new Error('array value is null');
+    } else if (typeString(numList)){
+        throw new Error('array contains string')
+    } else if (numList.length < 1){
+        throw new Error('no element in the list')
+    } else{
+        var sumedList = numList.reduce(function(prev, current){
+            return prev + current;
+        });
+        return sumedList;    
+    }
+}
+
+try {
+    console.log(sum([5, 3, 6, 2, 9]));
+} catch (err) {
+    console.log(err.message);
+}
+
 
 module.exports = sum;
