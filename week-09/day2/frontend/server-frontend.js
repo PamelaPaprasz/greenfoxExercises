@@ -26,7 +26,6 @@ app.get('/', function(req, res){
 
 app.get('/doubling', function(req, res) {
     var number = req.query.input;
-    console.log('params', req.query);
     
     if (number){
         res.send({
@@ -60,12 +59,12 @@ app.get('/greeter', function(req, res){
     
 });
     
-app.get('/appenda/{appendable}', function(req, res){
-    var aLessWord = req.query.appendable;
+app.get('/appenda/:word', function(req, res){
+    var aLessWord = req.params.word;
     
     if (aLessWord){
         res.send({
-            "appended": {aLessWord} + "a"
+            "appended": aLessWord + "a"
         })
     } else{
         res.send({
