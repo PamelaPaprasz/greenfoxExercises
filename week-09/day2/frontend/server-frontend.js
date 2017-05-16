@@ -18,11 +18,61 @@
 
 var express = require('express');
 var app = express();
+app.use('/assets', express.static('assets'));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-app.use('/assets', express.static('assets'));
-app.listen(3000);
+app.get('/doubling', function(req, res) {
+    var number = req.query.input;
+    console.log('params', req.query);
+    
+    if (number){
+        res.send({
+            "received": parseInt(number),
+            "result": number *2
+        });
+    } else{
+        res.send({
+            "error": "Please provide an input!"    
+        })
+    }
+});
+    
+app.get('/greeter', function(req, res){
+    var name = req.query.name;
+    var title = req.query.title;
+    
+    if (name && title){
+        res.send({
+            "welcome_message": "Oh, hi there " + name + ", my dear " + title + "!"
+        })
+    } else if (name === undefined){
+        res.send({
+            "error": "Please provide a name!"
+        })
+    } else if (title === undefined){
+        res.send({
+            "error": "Please provide a title!"
+        })
+    }
+    
+});
+    
+app.get('/appenda/{appendable}', function(req, res){
+    var aLessWord = req.query.appendable;
+    
+    if (aLessWord){
+        res.send({
+            "appended": {aLessWord} + "a"
+        })
+    } else{
+        res.send({
+            "error": "404"
+        })
+    } 
+    
+});
 
+app.listen(8080);
