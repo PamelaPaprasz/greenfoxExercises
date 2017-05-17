@@ -1,6 +1,7 @@
 var classNumber = 0;
 var requestedData;
 var id;
+var domain = 'https://time-radish.glitch.me';
 var body = document.querySelector('body');
 var articleContainer = document.querySelector('.article-container');
 var postFormContainer = document.querySelector('.post-form-container');
@@ -22,7 +23,7 @@ function getFromServer(callback) {
 	var xhr = new XMLHttpRequest();
 	method = "GET";
 
-	xhr.open(method, 'https://time-radish.glitch.me/posts', true);
+	xhr.open(method, domain + '/posts', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('Accept', 'application/json');
 
@@ -42,7 +43,7 @@ function postToServer(givenTitle, givenUrl, callback) {
 	var xhr = new XMLHttpRequest();
 	method = "POST";
 
-	xhr.open(method, 'https://time-radish.glitch.me/posts', true);
+	xhr.open(method, domain + '/posts', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('Accept', 'application/json');
 
@@ -62,7 +63,7 @@ function postToServer(givenTitle, givenUrl, callback) {
 var upVote = function(id, upArrow){
     console.log(id);
     var xhr = new XMLHttpRequest();
-    var url = 'https://time-radish.glitch.me/posts/' + id + '/upvote';
+    var url = domain + '/posts/' + id + '/upvote';
     method = 'PUT';
 
     xhr.open(method, url, true);
@@ -80,7 +81,7 @@ var upVote = function(id, upArrow){
 
 var downVote = function(id, downArrow){
     var xhr = new XMLHttpRequest();
-    var url = 'https://time-radish.glitch.me/posts/' + id + '/downvote';
+    var url = domain + '/posts/' + id + '/downvote';
     method = 'PUT';
 
     xhr.open(method, url, true);
@@ -98,7 +99,7 @@ var downVote = function(id, downArrow){
 
 var deleteRemove = function(id){
     var xhr = new XMLHttpRequest();
-    var url = 'https://time-radish.glitch.me/posts/'+ id;
+    var url = domain + '/posts/'+ id; 
     method = 'DELETE';
     
     xhr.open(method, url, true);
@@ -116,7 +117,7 @@ var deleteRemove = function(id){
 var postForm = function(){
     
     articleContainer.innerHTML = '';
-    newPostBut.innerHTML = '';
+    newPostBut.style.visibility = 'hidden';
     
     var newUrlLabel = document.createElement('label');
     newUrlLabel.setAttribute('class', 'label');
@@ -158,8 +159,8 @@ var postForm = function(){
     
     sendPostBut.addEventListener('click', function(){
         postToServer(newTitleInput.value, newUrlInput.value, getFromServer);
-        postFormContainer.style.display = 'none';
-        newPostBut.innerHTML = '<button class=\'new-post\'>add new post</button>';
+        postFormContainer.innerHTML = '';
+        newPostBut.style.visibility = 'visible';
     });
 }
 
