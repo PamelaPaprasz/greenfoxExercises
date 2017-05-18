@@ -36,7 +36,7 @@ var postCreator = function(dataFromServer){
         
         var articleInfo = document.createElement('div');
         articleInfo.setAttribute('class', 'info');
-        articleInfo.innerHTML = element.timestamp + ' ' + element.owner;
+        articleInfo.innerHTML = 'submitted' + ' ' + timeago().format(element.timestamp) + ' ' + 'by' + ' ' + element.owner;
         article.appendChild(articleInfo);
         
         var modify = document.createElement('button');
