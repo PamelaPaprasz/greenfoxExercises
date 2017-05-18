@@ -66,6 +66,12 @@ app.get('/books', function get(req, res){
     var tableEnd = '</table>';
     var q = '';
     
+    tableStart += "<tr> <th>" + "Book title" + "</th>";
+    tableStart += "<th>" + "Author's name" + "</th>";
+    tableStart += "<th>" + "Category" + "</th>";
+    tableStart += "<th>" + "Publisher's name" + "</th>";
+    tableStart += "<th>" + 'Book price' + "</th> </tr>";
+    
     if (req.query.category){
         q = 'WHERE cate_descrip = \'' + req.query.category + '\'';
     } else if (req.query.publisher){
@@ -81,6 +87,7 @@ app.get('/books', function get(req, res){
         if (err){
             console.log('PARAM', err);
         } else{
+            
             rows.forEach(row=>{
                 tableStart += '<tr> <td>' + row.book_name + '</td>';
                 tableStart += '<td>' + row.aut_name + '</td>';
