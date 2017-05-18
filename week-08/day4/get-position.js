@@ -5,6 +5,7 @@ var sendButton = document.querySelector('.send');
 var map = document.querySelector('.map');
 var long = document.querySelector('.long');
 var lat = document.querySelector('.lat');
+var iframe = document.querySelector('iframe');
 // var requestedData;
 var finalUrl;
 
@@ -34,6 +35,7 @@ var mapDrawing = function(parsedData){
 
 var urlMaker = function(){
     finalUrl = 'https://devru-latitude-longitude-find-v1.p.mashape.com/latlon.php?location=' + input.value;
+	iframe.src = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyAEEp_pWBNl3ZQ7z5ciTq4I-uwvjMtgeGk&q=' + input.value;
     console.log(finalUrl);
     getFromServer(finalUrl, mapDrawing);
 }
