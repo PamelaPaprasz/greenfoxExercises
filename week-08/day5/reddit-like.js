@@ -49,7 +49,7 @@ function postToServer(givenTitle, givenUrl, callback) {
 
 	xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
-            var requestedData = JSON.parse(xhr.response);
+            // var requestedData = JSON.parse(xhr.response);
             callback(postCreator);
 		}
 	}
