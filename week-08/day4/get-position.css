@@ -1,17 +1,18 @@
 body {
-    background: #FEE;    
+    background: #F2E2E5; 
 }
 
 .main{
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    margin: 3vw;
+    margin: 1vw;
 }
 
 .label {
     width: 30vw;
     margin-bottom: 1.5vw;
+    margin-left: 70px;
     font-size: 28px;
     color: #0FF1CE;
     font-weight: 900;
@@ -23,16 +24,18 @@ body {
     font-size: 24px;
     color: #CABBA6;
     font-weight: 700;
-    margin-right: 3vw;
+    margin-left: 70px;
+    /*margin-right: 2vw;*/
     width: 17.5vw;
     background: #FEE;
     /*margin-left: 2vw;*/
 }
 
 .send {
-    width: 22vw;
+    width: 25vw;
     height: 10vw;
     margin-top: 2.5vw;
+    margin-left: 70px;
     background: #F4C4D3;
     color: #9EE;
     font-weight: bold;
@@ -60,4 +63,10 @@ p {
     border: 3px solid #AC7;
     color: #FA7;
     font-weight: 600;
+}
+
+iframe {
+    position: absolute;
+    margin-left: 650px;
+    margin-top: -670px;
 }
