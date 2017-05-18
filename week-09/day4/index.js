@@ -64,8 +64,20 @@ app.get('/', function get(req, res){
 app.get('/books', function get(req, res){
     var tableStart = '<table>';
     var tableEnd = '</table>';
+    var q = '';
     
-    conn.query("SELECT book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_price FROM book_mast LEFT JOIN author ON book_mast.aut_id = author.aut_id LEFT JOIN category ON book_mast.cate_id = category.cate_id LEFT JOIN publisher ON book_mast.pub_id = publisher.pub_id;", function(err,rows){
+    if (req.query.category){
+        q = 'WHERE cate_descrip = \'' + req.query.category + '\'';
+    } else if (req.query.publisher){
+        q = 'WHERE pub_name = \'' + req.query.publisher + '\'';
+    } else if (req.query.pgt){
+        q = 'WHERE book_price >' + req.query.pgt;
+    } else if (req.query.plt){
+        q = 'WHERE book_price <' + req.query.plt;
+    }
+    
+    
+    conn.query("SELECT book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_price FROM book_mast LEFT JOIN author ON book_mast.aut_id = author.aut_id LEFT JOIN category ON book_mast.cate_id = category.cate_id LEFT JOIN publisher ON book_mast.pub_id = publisher.pub_id "+ q + ";", function(err,rows){
         if (err){
             console.log('PARAM', err);
         } else{
@@ -80,6 +92,21 @@ app.get('/books', function get(req, res){
         res.send(tableStart);
     });    
 });
+
+
+// app.get('/books/:word1/', function(req, res){
+// 
+//     if (req.params.word1 === category){
+//         res.send({
+//             "appended": aLessWord + "a"
+//         })
+//     } else{
+//         res.send({
+//             "error": "404"
+//         })
+//     } 
+// 
+// });
 
 app.listen(3000, function(){
     console.log('server running');
