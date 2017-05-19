@@ -2,21 +2,11 @@ var classNumber = 0;
 var requestedData;
 var id;
 var domain = 'https://time-radish.glitch.me';
+// var domain = 'http://localhost:3000';
 var body = document.querySelector('body');
 var articleContainer = document.querySelector('.article-container');
 var postFormContainer = document.querySelector('.post-form-container');
 var newPostBut = document.querySelector('.new-post');
-
-// var reloadPage = function(){
-//     document.location.href = 'file:///D:/greenfox/PamelaPaprasz/week-08/day5/reddit-like.html';
-// }
-
-var dateAndTimeDesign = function(){
-    var currentTime = Date.now();
-    var currentSec = parseInt(currentTime / 1000);
-    var timePassedBy = currentSec - requestedData.posts.timestamp;
-    return timePassedBy;
-}
 
 
 function getFromServer(callback) {
