@@ -26,16 +26,6 @@ body {
     height: 430px;
 }
 
-.controller {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    align-self: flex-end;
-    background: #C0FFEE;
-    width: 800px;
-    height: 70px;
-}
 
 .head-container {
     display: flex;
@@ -72,13 +62,13 @@ body {
 
 .black-plus {
     position: absolute;
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     background: url('img/blackplus-2.png');
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 140px;
-    margin-top: -20px;
+    margin-top: -17px;
 }
 
 .all-tracks {
@@ -171,3 +161,177 @@ body {
 .actual-track-list::-webkit-scrollbar-thumb {
   background-color: rgba(171,172,171,0.3);
 }
+
+
+.controller {
+    display: flex;
+    position: absolute;
+    align-self: flex-end;
+    background: #C0FFEE;
+    width: 770px;
+    height: 50px;
+    padding: 10px;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.rewind {
+    background: url('img/rewind-back.svg');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    margin-top: 30px;
+}
+
+.on-off {
+    background: url('img/play.svg');  
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.forward {
+    background: url('img/forward.svg');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    margin-top: 30px;
+}
+
+.pass-time {
+    margin: 5px;
+    margin-right: 10px;
+}
+
+.song-length {
+    margin: 5px;
+    margin-left: 10px;
+}
+
+.shuffle {
+    background: url('img/shuffle.svg');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+.volume {
+    background: url('img/volume.svg');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    margin-top: 22px;
+}
+
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 60%;
+  margin: 5.9px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2.2px;
+  cursor: pointer;
+  box-shadow: 0.8px 0.8px 4.1px #6b71d2, 0px 0px 0.8px #7f84d8;
+  background: rgba(106, 164, 120, 0.16);
+  border-radius: 17.6px;
+  border: 0px solid #0a0001;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 1.6px rgba(158, 197, 113, 0.55), 0px 0px 0px rgba(170, 204, 131, 0.55);
+  border: 5.5px solid rgba(126, 213, 143, 0.24);
+  height: 14px;
+  width: 15px;
+  border-radius: 14px;
+  background: rgba(141, 242, 215, 0.74);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5.9px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(204, 224, 209, 0.16);
+}
+input[type=range]::-moz-range-track {
+  width: 60%;
+  height: 2.2px;
+  cursor: pointer;
+  box-shadow: 0.8px 0.8px 4.1px #6b71d2, 0px 0px 0.8px #7f84d8;
+  background: rgba(106, 164, 120, 0.16);
+  border-radius: 17.6px;
+  border: 0px solid #0a0001;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 1.6px rgba(158, 197, 113, 0.55), 0px 0px 0px rgba(170, 204, 131, 0.55);
+  border: 5.5px solid rgba(126, 213, 143, 0.24);
+  height: 14px;
+  width: 15px;
+  border-radius: 14px;
+  background: rgba(141, 242, 215, 0.74);
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 60%;
+  height: 2.2px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: rgba(42, 69, 49, 0.16);
+  border: 0px solid #0a0001;
+  border-radius: 35.2px;
+  box-shadow: 0.8px 0.8px 4.1px #6b71d2, 0px 0px 0.8px #7f84d8;
+}
+input[type=range]::-ms-fill-upper {
+  background: rgba(106, 164, 120, 0.16);
+  border: 0px solid #0a0001;
+  border-radius: 35.2px;
+  box-shadow: 0.8px 0.8px 4.1px #6b71d2, 0px 0px 0.8px #7f84d8;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 1.6px rgba(158, 197, 113, 0.55), 0px 0px 0px rgba(170, 204, 131, 0.55);
+  border: 5.5px solid rgba(126, 213, 143, 0.24);
+  height: 14px;
+  width: 15px;
+  border-radius: 14px;
+  background: rgba(141, 242, 215, 0.74);
+  cursor: pointer;
+  height: 2.2px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: rgba(106, 164, 120, 0.16);
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: rgba(204, 224, 209, 0.16);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
