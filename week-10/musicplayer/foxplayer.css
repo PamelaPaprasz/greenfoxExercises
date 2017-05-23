@@ -101,11 +101,63 @@ body {
     color: grey;
 }
 
+.tracks {
+    display: flex;
+    overflow: auto;
+    width: 335px;
+    height: 120px;
+    padding: 10px;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.tracks::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.tracks::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.8);
+}
+
+.tracks::-webkit-scrollbar-thumb {
+  background-color: rgba(171,172,171,0.3);
+}
+
 .actual-track {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
     color: grey;
-    width: 430px;
-    height: 90px;
+    width: 390px;
+    height: 50px;
     background: rgb(245, 245, 245);
+}
+
+.grey-plus {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.actual-track-list {
+    display: flex;
+    overflow: auto;
+    width: 395px;
+    height: 300px;
+    padding: 10px;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.actual-track-list::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.actual-track-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.8);
+}
+
+.actual-track-list::-webkit-scrollbar-thumb {
+  background-color: rgba(171,172,171,0.3);
 }
