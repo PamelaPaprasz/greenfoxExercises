@@ -126,7 +126,13 @@ body {
 
 .actual-track-title {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+    line-height: 25px;
+}
+
+h2 {
+    font-size: 20px;
 }
 
 .symbol-container {
