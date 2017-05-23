@@ -12,6 +12,7 @@ body {
     height: 400px;
     background: grey;
     margin-top: 100px;
+    box-shadow: 
 }
 
 .playlists {
@@ -20,8 +21,16 @@ body {
     height: 340px;
 }
 
-.actual-playlists{
+.actual-playlists {
     background: blue;
     width: 380px;
     height: 340px;
+}
+
+.controller {
+    position: absolute;
+    align-self: flex-end;
+    background: black;
+    width: 700px;
+    height: 60px;
 }
