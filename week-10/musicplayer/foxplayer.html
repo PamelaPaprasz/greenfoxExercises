@@ -4,7 +4,7 @@
         <title>my first music player</title>
         <meta charset="utf-8">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" rel="stylesheet">
-        <link rel="stylesheet" href="foxplayer.css">
+        <link rel="stylesheet" href="assets/foxplayer.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     </head>
     <body>
@@ -30,26 +30,20 @@
                         <p>ovbspibfpbpdvbpvbpsv</p>
                     </div>
                     <div class='symbol-container'>
-                        <img class='grey-plus' src='img/grey-plus.png'><img src='img/star.svg'>
+                        <img class='grey-plus' src='/img/grey-plus.png'><img src='/img/star.svg'>
                     </div>
                 </div>
                 <div class='actual-track-list'></div>
             </div>
             <div class='controller'>
-                <!-- <audio controls>
-                    <source src='Purple_Drift.mp3' type='audio/mpeg'>
-                </audio> -->
+                <audio controls controlsList="nodownload">
+                    <source src='/assets/Purple_Drift.mp3' type='audio/mpeg'>
+                </audio>
                 <div class='rewind'></div>
-                <div class='on-off'></div>
                 <div class='forward'></div>
-                <time class='pass-time'>4:17</time>
-                <input type=range class='seekbar'>
-                <time class='song-length'>5:26</time>
                 <div class='shuffle'></div>
-                <div class='volume'></div>
-                <input type='range' class='volumebar'>
             </div>
         </div>
-        <script src='foxplayer.js'></script>
+        <script src='/assets/front-foxplayer.js'></script>
     </body>
 </html>
