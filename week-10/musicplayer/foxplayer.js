@@ -40,7 +40,7 @@ app.get('/', function(req, res){
 // });
 
 app.get('/playlists', function(req, res){
-    conn.query('SELECT title FROM playlists', function(err, rows){
+    conn.query('SELECT * FROM playlists', function(err, rows){
         if (err){
             console.log('PARAM', err);
         } else{
@@ -66,6 +66,37 @@ app.get('/playlists-tracks/', function(req, res){
         res.send(result);
     });
 });
+
+app.delete('/playlists/:id', function(req, res){
+	var resultDel = {};
+	console.log(req.params.id);
+    conn.query('DELETE FROM playlists WHERE id="' + req.params.id + '"', function(err, rows){
+		conn.query('SELECT * FROM playlists', function(err, rows){
+        	if (err){
+            	console.log('PARAM', err);
+        	} else{
+            	resultDel = rows;
+				console.log(resultDel);
+        	};
+        	res.send(resultDel);
+    	})
+	})
+});
+// 
+// app.delete('/playlists/:id', function(req, res){
+// 	var resultDel = {};
+//     conn.query('DELETE FROM playlists WHERE id="' + req.params.id + '"', function(err, rows){
+// 		conn.query('SELECT * FROM connection LEFT JOIN playlists ON id = playlist_id LEFT JOIN tracks ON id = track_id', function(err, rows){
+//         	if (err){
+//             	console.log('PARAM', err);
+//         	} else{
+//             	resultDel = rows;
+// 				console.log(resultDel);
+//         	};
+//         	res.send(resultDel);
+//     	})
+// 	})
+// });
 
 
 app.listen(3000, function(){
