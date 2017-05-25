@@ -4,6 +4,7 @@ var trackContainer = document.querySelector('.tracks');
 var songContainer = document.querySelector('.actual-track-list');
 var sourceSong = document.querySelector('audio');
 var polipX = document.querySelector('.ever-list');
+var blackPlus = document.querySelector('.black-plus');
 var rankNumber;
 var method;
 
@@ -77,6 +78,35 @@ function createTracklist(serverData) {
         })
     });
 }
+
+
+function postNewPlaylistToServer(userInput, callback){
+	var xhr = new XMLHttpRequest();
+	method = "POST";
+
+	xhr.open(method, 'http://localhost:3000/playlists', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Accept', 'application/json');
+
+	xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200){
+			var requestedData = JSON.parse(xhr.response);
+            callback(requestedData);
+		}
+	}
+    var data = {
+        title: userInput,
+        system: 0
+    }
+	xhr.send(JSON.stringify(data));
+}
+
+
+function addNewPlaylist(){
+	var newPlaylistName = prompt("What's the name of your new playlist?");
+	postNewPlaylistToServer(newPlaylistName, createPlaylist);
+}
+blackPlus.addEventListener('click', addNewPlaylist)
 
 function playClickedTrack(path){
     sourceSong.setAttribute('src', path)
