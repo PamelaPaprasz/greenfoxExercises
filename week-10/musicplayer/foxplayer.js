@@ -82,6 +82,25 @@ app.delete('/playlists/:id', function(req, res){
     	})
 	})
 });
+
+
+app.post('/playlists', function(req, res){
+    var resultPost = {};
+    var post  = {title: req.body.title, system:0};
+    conn.query('INSERT INTO playlists SET ?', post, function(err,rows){
+        conn.query('SELECT * FROM playlists', function(err, rows){
+            if(err) {
+                console.log("PARA", err); 
+            } else {
+                resultPost = rows;
+                console.log(resultPost);
+            }
+            res.send(resultPost);
+        })
+    })
+});
+
+
 // 
 // app.delete('/playlists/:id', function(req, res){
 // 	var resultDel = {};
