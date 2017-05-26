@@ -72,6 +72,12 @@ body {
     margin-top: -17px;
 }
 
+.black-plus:hover {
+    height: 17px;
+    width: 17px;
+    cursor: pointer;
+}
+
 .all-tracks {
     display: flex;
     align-items: center;
@@ -150,6 +156,18 @@ body {
     background: rgb(222, 222, 222);
 }
 
+.active-track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    /*width: 330px;*/
+    height: 10px;
+    background: #DECADE;
+    /*background: rgb(245, 245, 245);*/
+    color: grey;
+}
+
 .x-sign {
     width: 20px;
     height: 20px;
@@ -157,6 +175,11 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     justify-content: space-between;
+}
+
+.x-sign:hover {
+    width: 25px;
+    height: 25px;
 }
 
 .actual-track {
@@ -221,6 +244,19 @@ h2 {
     color: grey;
 }
 
+.even-song {
+    background: rgb(245, 245, 245);
+}
+
+.active {
+    align-items: center;
+    padding: 20px;
+    height: 10px;
+    color: grey;
+    background: #DECADE;
+}
+
+
 .song-box:hover {
     cursor: pointer;
     color: rgb(250,123,167);
@@ -231,9 +267,6 @@ h2 {
     margin-top: -15px;
 }
 
-.even-song {
-    background: rgb(245, 245, 245);
-}
 
 .controller {
     display: flex;
@@ -281,6 +314,10 @@ h2 {
     margin-top: 7px;
     z-index: 5;
 }
+
+/*audio {
+    background: red;
+}*/
 
 
 audio::-webkit-media-controls-panel {
