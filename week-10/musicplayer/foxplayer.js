@@ -21,6 +21,7 @@ const conn = mysql.createConnection({
 });
 
 
+
 conn.connect(function(err){
   if(err){
     console.log("Error connecting to Db");
@@ -30,14 +31,12 @@ conn.connect(function(err){
 });
 
 
+
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/foxplayer.html');
 });
 
 
-// app.get('/playlists', function(req, res){
-//     res.send(playlists);
-// });
 
 app.get('/playlists', function(req, res){
     conn.query('SELECT * FROM playlists', function(err, rows){
@@ -52,9 +51,6 @@ app.get('/playlists', function(req, res){
 });
 
 
-// app.get('/playlists-tracks/', function(req, res){
-//     res.send(tracks);
-// });
 
 app.get('/playlists-tracks/', function(req, res){
     conn.query('SELECT * FROM tracks', function(err, rows){
@@ -66,6 +62,42 @@ app.get('/playlists-tracks/', function(req, res){
         res.send(result);
     });
 });
+
+
+
+app.get('/playlists-connection/', function(req, res){
+    conn.query('SELECT * FROM connection', function(err, rows){
+        if (err){
+            console.log('PARAM', err);
+        } else{
+            result = rows;
+        };
+        res.send(result);
+    });
+});
+
+
+
+app.post('/playlists-connection', function(req, res){
+    var resultPost = {};
+    console.log(req.body.title);
+    var recentSongId = req.body.recentSong.id
+    console.log(recentSongId);
+    
+    var post  = {playlist_name: req.body.title, track_id: recentSongId};
+    console.log(post);
+    
+    conn.query('INSERT INTO connection SET ?', post, function(err,rows){
+        if(err) {
+            console.log("PARA", err); 
+        } else {
+            resultPost = rows;
+        }
+        res.send();
+    })
+});
+
+
 
 app.delete('/playlists/:id', function(req, res){
 	var resultDel = {};
@@ -84,6 +116,7 @@ app.delete('/playlists/:id', function(req, res){
 });
 
 
+
 app.post('/playlists', function(req, res){
     var resultPost = {};
     var post  = {title: req.body.title, system:0};
@@ -100,22 +133,6 @@ app.post('/playlists', function(req, res){
     })
 });
 
-
-// 
-// app.delete('/playlists/:id', function(req, res){
-// 	var resultDel = {};
-//     conn.query('DELETE FROM playlists WHERE id="' + req.params.id + '"', function(err, rows){
-// 		conn.query('SELECT * FROM connection LEFT JOIN playlists ON id = playlist_id LEFT JOIN tracks ON id = track_id', function(err, rows){
-//         	if (err){
-//             	console.log('PARAM', err);
-//         	} else{
-//             	resultDel = rows;
-// 				console.log(resultDel);
-//         	};
-//         	res.send(resultDel);
-//     	})
-// 	})
-// });
 
 
 app.listen(3000, function(){
