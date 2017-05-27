@@ -1,23 +1,40 @@
 'use strict'
 
+
 var trackContainer = document.querySelector('.tracks');
 var songContainer = document.querySelector('.actual-track-list');
 var sourceSong = document.querySelector('audio');
+console.log(sourceSong);
 var polipX = document.querySelector('.ever-list');
 var blackPlus = document.querySelector('.black-plus');
 var allTracksPlaylist = document.querySelector('.all-tracks');
 var favoriteTracksPlaylist = document.querySelector('.favorite-tracks');
+var playButton = document.querySelector('.play-button');
+var currentTrackTitle = document.querySelector('h2');
+var currentTrackArtist = document.querySelector('p');
+var addSongToPlaylist = document.querySelector('.grey-plus');
+var prevSong = document.querySelector('.rewind');
+var nextSong = document.querySelector('.forward');
 var rankNumber;
 var method;
 var serverTracklist;
 var currentTrack;
 
 
-function postNewPlaylistToServer(userInput, callback){
+
+function songToPlaylist(){
+	var choosenPlaylist = prompt("Write here the name of the playlist u wanna include the currently playing song!");
+	postToServer('http://localhost:3000/playlists-connection', choosenPlaylist, serverTracklist[currentTrack], createPlaylist)
+}
+addSongToPlaylist.addEventListener('click', songToPlaylist)
+
+
+
+function postToServer(url, userInput, recentSong = false, callback){
 	var xhr = new XMLHttpRequest();
 	method = "POST";
 	
-	xhr.open(method, 'http://localhost:3000/playlists', true);
+	xhr.open(method, url, true);
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.setRequestHeader('Accept', 'application/json');
 	
@@ -29,10 +46,13 @@ function postNewPlaylistToServer(userInput, callback){
 	}
 	var data = {
 		title: userInput,
-		system: 0
+		system: 0,
+		recentSong: recentSong
 	}
+	console.log(data);
 	xhr.send(JSON.stringify(data));
 }
+
 
 
 function ajax(url, method, callback) {
@@ -50,6 +70,7 @@ function ajax(url, method, callback) {
 	}
 	xhr.send();
 }
+
 
 
 function createPlaylist(serverData) {
@@ -92,6 +113,7 @@ function createPlaylist(serverData) {
 }
 
 
+
 allTracksPlaylist.addEventListener('click', function(){
 	var trackBoxList = document.querySelectorAll('.track-box');
 	
@@ -104,6 +126,7 @@ allTracksPlaylist.addEventListener('click', function(){
 })
 
 
+
 favoriteTracksPlaylist.addEventListener('click', function(){
 	var trackBoxList = document.querySelectorAll('.track-box');
 	
@@ -114,6 +137,7 @@ favoriteTracksPlaylist.addEventListener('click', function(){
 	
 	favoriteTracksPlaylist.classList.add('active-track');
 })
+
 
 
 function createTracklist(serverData) {
@@ -139,9 +163,18 @@ function createTracklist(serverData) {
         songBox.addEventListener('click', function(){
 			currentTrack = index;
 			playTrack();
+			changeTrackHeader();
         })
     });
 }
+
+
+
+function changeTrackHeader(){
+	currentTrackTitle.innerHTML = serverTracklist[currentTrack].title;
+	currentTrackArtist.innerHTML = '(' + serverTracklist[currentTrack].artist + ')';
+}
+
 
 
 function playTrack(){
@@ -150,29 +183,73 @@ function playTrack(){
 	highlight();
 }
 
+
+
 function highlight(){
 	var songBoxList = document.querySelectorAll('.song-box');
 	songBoxList.forEach(function (element){
 		element.classList.remove('active')
 	})
 	songBoxList[currentTrack].classList.add('active');
-	
 }
 
 
+
 sourceSong.addEventListener('ended', function(){
-	currentTrack++;
+	if (currentTrack === serverTracklist.length -1){
+		currentTrack = 0;
+	} else {
+		currentTrack++;
+	}
 	playTrack()
+	changeTrackHeader();
 });
 
 
 
 function addNewPlaylist(){
 	var newPlaylistName = prompt("What's the name of your new playlist?");
-	postNewPlaylistToServer(newPlaylistName, createPlaylist);
+	postToServer(newPlaylistName, 'http://localhost:3000/playlists', createPlaylist);
 }
 blackPlus.addEventListener('click', addNewPlaylist)
 
 
+
+function jumbBack(){
+	if (currentTrack === 0){
+		currentTrack = serverTracklist.length -1;
+	} else {
+		currentTrack--;
+	}
+	playTrack();
+	changeTrackHeader();
+}
+prevSong.addEventListener('click', jumbBack)
+
+
+
+function jumbForward(){
+	if (currentTrack === serverTracklist.length -1){
+		currentTrack = 0;
+	} else {
+		currentTrack++;
+	}
+	playTrack();
+	changeTrackHeader();
+}
+nextSong.addEventListener('click', jumbForward)
+
+
 ajax('http://localhost:3000/playlists', 'GET', createPlaylist);
+
+
+
+
+
+
+
+
+
+
+
 
