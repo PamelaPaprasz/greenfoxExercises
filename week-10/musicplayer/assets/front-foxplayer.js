@@ -85,7 +85,9 @@ function ajax(url, method, callback) {
 function createPlaylist(serverData) {
 	console.log(serverData);
 	trackContainer.innerHTML = '';
+	
     serverData.forEach(function(element, index){
+		
         var trackBox = document.createElement('div');
         trackBox.setAttribute('class', 'track-box');
         if (index % 2 === 0){
@@ -100,6 +102,7 @@ function createPlaylist(serverData) {
 		xSign.setAttribute('id', element.id);
 		trackBox.appendChild(xSign);
 		
+		
 		xSign.addEventListener('click', function(){
 			ajax('http://localhost:3000/playlists/' + xSign.id, 'DELETE', createPlaylist);
 		})
@@ -107,6 +110,7 @@ function createPlaylist(serverData) {
 	
 		
 		trackBox.addEventListener('click', function(){
+			ajax('http://localhost:3000/playlists-tracks/' + element.title, 'GET', createTracklist);
 			
 			allTracksPlaylist.classList.remove('active-track');
 			favoriteTracksPlaylist.classList.remove('active-track');
