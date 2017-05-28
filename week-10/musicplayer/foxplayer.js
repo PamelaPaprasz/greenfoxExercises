@@ -64,6 +64,18 @@ app.get('/playlists-tracks/', function(req, res){
 });
 
 
+app.get('/playlists-tracks/:favorites', function(req, res){
+    conn.query('SELECT * FROM tracks INNER JOIN connection ON tracks.id = connection.track_id WHERE playlist_name = "Favorites"', function(err, rows){
+        if (err){
+            console.log('PARAM', err);
+        } else{
+            result = rows;
+        };
+        res.send(result);
+    });
+});
+
+
 
 app.get('/playlists-connection/', function(req, res){
     conn.query('SELECT * FROM connection', function(err, rows){
@@ -87,7 +99,7 @@ app.post('/playlists-connection', function(req, res){
     var post  = {playlist_name: req.body.title, track_id: recentSongId};
     console.log(post);
     
-    conn.query('INSERT INTO connection SET ?', post, function(err,rows){
+    conn.query('INSERT IF NOT EXISTS INTO connection SET ?', post, function(err,rows){
         if(err) {
             console.log("PARA", err); 
         } else {
