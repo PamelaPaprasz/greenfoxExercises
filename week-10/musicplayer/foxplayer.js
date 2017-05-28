@@ -63,9 +63,23 @@ app.get('/playlists-tracks/', function(req, res){
     });
 });
 
+// 
+// app.get('/playlists-tracks/:favorites', function(req, res){
+//     conn.query('SELECT * FROM tracks INNER JOIN connection ON tracks.id = connection.track_id WHERE playlist_name = "Favorites"', function(err, rows){
+//         if (err){
+//             console.log('PARAM', err);
+//         } else{
+//             result = rows;
+//         };
+//         res.send(result);
+//     });
+// });
 
-app.get('/playlists-tracks/:favorites', function(req, res){
-    conn.query('SELECT * FROM tracks INNER JOIN connection ON tracks.id = connection.track_id WHERE playlist_name = "Favorites"', function(err, rows){
+
+app.get('/playlists-tracks/:playlistName', function(req, res){
+    // console.log(req.params.playlistName);
+    conn.query('SELECT * FROM tracks INNER JOIN connection ON tracks.id = connection.track_id WHERE playlist_name = "' + req.params.playlistName + '"', function(err, rows){
+        // console.log(rows);
         if (err){
             console.log('PARAM', err);
         } else{
