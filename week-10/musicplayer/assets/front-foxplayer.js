@@ -4,7 +4,6 @@
 var trackContainer = document.querySelector('.tracks');
 var songContainer = document.querySelector('.actual-track-list');
 var sourceSong = document.querySelector('audio');
-console.log(sourceSong);
 var polipX = document.querySelector('.ever-list');
 var blackPlus = document.querySelector('.black-plus');
 var allTracksPlaylist = document.querySelector('.all-tracks');
@@ -13,8 +12,10 @@ var playButton = document.querySelector('.play-button');
 var currentTrackTitle = document.querySelector('h2');
 var currentTrackArtist = document.querySelector('p');
 var addSongToPlaylist = document.querySelector('.grey-plus');
+var addSongToFavorites = document.querySelector('.star');
 var prevSong = document.querySelector('.rewind');
 var nextSong = document.querySelector('.forward');
+var dynamicPlayListContainer = document.querySelectorAll('.track-box');
 var rankNumber;
 var method;
 var serverTracklist;
@@ -27,6 +28,13 @@ function songToPlaylist(){
 	postToServer('http://localhost:3000/playlists-connection', choosenPlaylist, serverTracklist[currentTrack], createPlaylist)
 }
 addSongToPlaylist.addEventListener('click', songToPlaylist)
+
+
+function songToFavorites(){
+	console.log(serverTracklist[currentTrack]);
+	postToServer('http://localhost:3000/playlists-connection', 'Favorites', serverTracklist[currentTrack], createPlaylist)
+}
+addSongToFavorites.addEventListener('click', songToFavorites)
 
 
 
@@ -65,6 +73,7 @@ function ajax(url, method, callback) {
 	xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
             var requestedData = JSON.parse(xhr.response);
+			console.log(requestedData);
             callback(requestedData);
 		}
 	}
@@ -115,6 +124,7 @@ function createPlaylist(serverData) {
 
 
 allTracksPlaylist.addEventListener('click', function(){
+	ajax('http://localhost:3000/playlists-tracks/', 'GET', createTracklist);
 	var trackBoxList = document.querySelectorAll('.track-box');
 	
 	trackBoxList.forEach(function(element){
@@ -128,6 +138,7 @@ allTracksPlaylist.addEventListener('click', function(){
 
 
 favoriteTracksPlaylist.addEventListener('click', function(){
+	ajax('http://localhost:3000/playlists-tracks/favorites', 'GET', createTracklist)
 	var trackBoxList = document.querySelectorAll('.track-box');
 	
 	trackBoxList.forEach(function(element){
