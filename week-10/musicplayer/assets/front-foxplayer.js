@@ -1,6 +1,5 @@
 'use strict'
 
-
 var trackContainer = document.querySelector('.tracks');
 var songContainer = document.querySelector('.actual-track-list');
 var sourceSong = document.querySelector('audio');
@@ -15,13 +14,13 @@ var addSongToPlaylist = document.querySelector('.grey-plus');
 var addSongToFavorites = document.querySelector('.star');
 var prevSong = document.querySelector('.rewind');
 var nextSong = document.querySelector('.forward');
+var shuffle = document.querySelector('.shuffle');
 var dynamicPlayListContainer = document.querySelectorAll('.track-box');
 var rankNumber;
 var method;
 var serverTracklist;
 var currentTrack;
-
-
+var randomIndex;
 
 function songToPlaylist(){
 	var choosenPlaylist = prompt("Write here the name of the playlist u wanna include the currently playing song!");
@@ -201,6 +200,10 @@ function playTrack(){
 
 
 function highlight(){
+	// serverTracklistList.forEach(function (element){
+	// 	element.classList.remove('active')
+	// })
+	// serverTracklistList[currentTrack].classList.add('active');
 	var songBoxList = document.querySelectorAll('.song-box');
 	songBoxList.forEach(function (element){
 		element.classList.remove('active')
@@ -213,6 +216,11 @@ function highlight(){
 sourceSong.addEventListener('ended', function(){
 	if (currentTrack === serverTracklist.length -1){
 		currentTrack = 0;
+	} else if (shuffle.className === 'shuffle on'){
+		var randomIndex = Math.floor(Math.random()*(serverTracklist.length - 1)); 
+		currentTrack = randomIndex;
+		playTrack();
+		changeTrackHeader();
 	} else {
 		currentTrack++;
 	}
@@ -231,6 +239,7 @@ blackPlus.addEventListener('click', addNewPlaylist)
 
 
 function jumbBack(){
+	// prevSong.src = '/img/clicked-rewind-back.svg'
 	if (currentTrack === 0){
 		currentTrack = serverTracklist.length -1;
 	} else {
@@ -253,6 +262,48 @@ function jumbForward(){
 	changeTrackHeader();
 }
 nextSong.addEventListener('click', jumbForward)
+
+
+
+var shuffleSongs = function() {
+	shuffle.classList.toggle('on');	
+    // var randomIndex = Math.floor(Math.random()*(serverTracklist.length - 1)); 
+	// currentTrack = randomIndex;
+	// playTrack();
+	// changeTrackHeader();
+	// if (shuffle.className === 'shuffle on'){
+	// 	// shuffle.setAttribute('src', '/img/polip.png')
+	// 	shuffle.style.backgroundImage = 'url(img/polip.PNG)';
+		// shuffle.style.zIndex = '5';
+	// }
+}  
+shuffle.addEventListener('click', shuffleSongs)
+
+
+// function shuffleSongs() {
+// 
+//     var counter = serverTracklist.length;
+// 	
+//     // While there are elements in the array
+// 	var shuffledList = [];
+//     while (counter > 0) {
+//         // Pick a random index
+//         var index = Math.floor(Math.random() * counter);
+// 	
+//         // Decrease counter by 1
+//         counter--;
+// 	
+//         // And swap the last element with it
+//         var temp = serverTracklist[counter];
+//         serverTracklist[counter] = serverTracklist[index];
+//         serverTracklist[index] = temp;
+// 		shuffledList.push(temp)	
+// 	}
+// 	createTracklist(shuffledList);
+// 	playTrack();
+// 	changeTrackHeader();
+// }
+// shuffle.addEventListener('click', shuffleSongs)
 
 
 ajax('http://localhost:3000/playlists', 'GET', createPlaylist);
