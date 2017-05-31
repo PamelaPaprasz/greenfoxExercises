@@ -206,21 +206,21 @@ function highlight(){
 	// serverTracklistList[currentTrack].classList.add('active');
 	var songBoxList = document.querySelectorAll('.song-box');
 	songBoxList.forEach(function (element){
-		element.classList.remove('active')
+		element.classList.remove('highlighted')
 	})
-	songBoxList[currentTrack].classList.add('active');
+	songBoxList[currentTrack].classList.add('highlighted');
 }
 
 
 
 sourceSong.addEventListener('ended', function(){
-	if (currentTrack === serverTracklist.length -1){
-		currentTrack = 0;
-	} else if (shuffle.className === 'shuffle on'){
+	if (shuffle.className === 'shuffle on'){
 		var randomIndex = Math.floor(Math.random()*(serverTracklist.length - 1)); 
 		currentTrack = randomIndex;
 		playTrack();
 		changeTrackHeader();
+	} else if (currentTrack === serverTracklist.length -1){
+		currentTrack = 0;	
 	} else {
 		currentTrack++;
 	}
