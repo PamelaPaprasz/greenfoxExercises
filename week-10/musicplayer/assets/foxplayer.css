@@ -198,15 +198,39 @@ body {
 }
 
 .actual-track-title {
-    display: flex;
+    /*display: flex;
     align-items: flex-start;
-    flex-direction: column;
-    line-height: 25px;
+    flex-direction: column;*/
 }
 
+
 h2 {
+    position: relative; 
+    width: 300px;
+    text-align: justify;  
+    margin-right: -1em;
+    padding-right: 1em;
+    line-height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: "…";
+    text-overflow: ellipsis;
     font-size: 20px;
 }
+
+p {
+    position: relative; 
+    width: 300px;
+    text-align: justify;  
+    margin-right: -1em;
+    padding-right: 1em;
+    line-height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: "…";
+    text-overflow: ellipsis;    
+}
+
 
 .symbol-container {
     display: flex;
@@ -222,6 +246,10 @@ h2 {
     width: 22px;
     height: 22px;
     margin-right: 10px;
+    cursor: pointer;
+}
+
+.star:hover {
     cursor: pointer;
 }
 
@@ -256,7 +284,7 @@ h2 {
     background: rgb(245, 245, 245);
 }
 
-.active {
+.highlighted {
     align-items: center;
     padding: 20px;
     height: 10px;
@@ -299,6 +327,17 @@ h2 {
     z-index: 5;
 }
 
+/*.rewind:hover {
+    background: url('/img/clicked-rewind-back.svg');
+    position: absolute;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    z-index: 5;
+    cursor: pointer;
+}*/
+
 
 .forward {
     position: absolute;
@@ -311,6 +350,7 @@ h2 {
     z-index: 5;
 }
 
+
 .shuffle {
     position: absolute;
     background: url('/img/shuffle.svg');
@@ -322,6 +362,7 @@ h2 {
     margin-top: 7px;
     z-index: 5;
 }
+
 
 /*audio {
     background: red;
