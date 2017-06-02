@@ -42,9 +42,23 @@ app.get('/todos', function(req, res){
             console.log('PARAM', err);
         } else{
             result = rows;
-			console.log(result);
         }
         res.send(result);
+    })
+});
+
+
+app.get('/todos/:id', function(req, res){
+    var result = {};
+    conn.query('UPDATE todos SET done = "1" WHERE id =' + '\'' + req.params.id + '\'', function(err, rows){
+        conn.query('SELECT * FROM todos', function(err, rows){
+            if(err) {
+                console.log("PARA", err); 
+            } else {
+                result = rows;
+            }
+            res.send(result);
+        })
     })
 });
 
@@ -59,7 +73,6 @@ app.post('/todos', function(req, res){
                 console.log("PARA", err); 
             } else {
                 resultPost = rows;
-                console.log(resultPost);
             }
             res.send(resultPost);
         })
