@@ -1,0 +1,79 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FB1;
+}
+
+.main-wrapper {
+    width: 600px;
+    height: 600px;
+    background: #D1E5E1;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-left: 225px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    letter-spacing: 0.09em;
+    color: grey;
+}
+
+.todo-list {
+    display: block;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.single-todo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-box {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.delete-todo {
+    background: url('/img/trash.svg');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
+
+.delete-todo:hover {
+    cursor: pointer;
+}
+
+.check-box {
+    background: url('/img/unchecked.svg');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
+
+.check-box:hover {
+    cursor: pointer;
+}
+
+.checked-box {
+    background: url('/img/checkmark.svg');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
