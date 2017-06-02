@@ -80,7 +80,12 @@ function createTodos(serverData) {
 		iconBox.appendChild(trashBin);
         
         var checkBox = document.createElement('div');
-        checkBox.setAttribute('class', 'check-box');
+        if (element.done === 0){
+            checkBox.setAttribute('class', 'check-box');    
+        } else {
+            checkBox.setAttribute('class', 'checked-box');        
+        }
+        checkBox.setAttribute('id', element.id);
         iconBox.appendChild(checkBox);
         
         trashBin.addEventListener('click', function(){
@@ -88,8 +93,7 @@ function createTodos(serverData) {
 		})
         
         checkBox.addEventListener('click', function(){
-            checkBox.classList.toggle('checked-box')
-            todoTitle.style.opacity = 0.5
+            ajax('http://localhost:3000/todos/' + checkBox.id, 'GET', createTodos);
         })
     });
     
