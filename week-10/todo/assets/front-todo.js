@@ -52,21 +52,21 @@ addButton.addEventListener('click', function(){
 
 
 
-function putToServer(clickedItem){
+function putToServer(url, method, doneStatus, callback){
 	var xhr = new XMLHttpRequest();
 	
-	xhr.open('PUT', 'http://localhost:3000/todos/' + clickedItem[0].id, true);
+	xhr.open(method, url, true);
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.setRequestHeader('Accept', 'application/json');
 	
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && xhr.status === 200){
 			var requestedData = JSON.parse(xhr.response);
-			createTodos(requestedData);
+			callback(requestedData);
 		}
 	}
 	
-	if (clickedItem[0].done === 0){
+	if (doneStatus === 0){
 		var data = {
 			done: 1
 		}
@@ -126,7 +126,7 @@ function createTodos(serverData) {
 		})
         
         checkBox.addEventListener('click', function(){
-            ajax('http://localhost:3000/todos/' + checkBox.id, 'GET', putToServer)
+            putToServer('http://localhost:3000/todos/' + checkBox.id, 'PUT', element.done, createTodos)
         })
     });
     
