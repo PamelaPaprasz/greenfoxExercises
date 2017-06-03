@@ -50,12 +50,28 @@ app.get('/todos', function(req, res){
 
 app.get('/todos/:id', function(req, res){
     var result = {};
-    conn.query('UPDATE todos SET done = "1" WHERE id =' + '\'' + req.params.id + '\'', function(err, rows){
+    conn.query('SELECT * FROM todos WHERE id =' + '\'' + req.params.id + '\'', function(err, rows){
+        if(err) {
+            console.log("PARA", err); 
+        } else {
+            result = rows;
+            console.log(result);
+            }
+        res.send(result);
+    })
+});
+
+
+app.put('/todos/:id', function(req, res){
+    var result = {};
+
+    conn.query('UPDATE todos SET done ="' + req.body.done +'" WHERE id="' + req.params.id + '"', function(err, rows){
         conn.query('SELECT * FROM todos', function(err, rows){
             if(err) {
                 console.log("PARA", err); 
             } else {
                 result = rows;
+                console.log(result);
             }
             res.send(result);
         })
