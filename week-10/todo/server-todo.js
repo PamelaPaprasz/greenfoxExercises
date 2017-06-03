@@ -48,24 +48,26 @@ app.get('/todos', function(req, res){
 });
 
 
-app.get('/todos/:id', function(req, res){
-    var result = {};
-    conn.query('SELECT * FROM todos WHERE id =' + '\'' + req.params.id + '\'', function(err, rows){
-        if(err) {
-            console.log("PARA", err); 
-        } else {
-            result = rows;
-            console.log(result);
-            }
-        res.send(result);
-    })
-});
+// app.get('/todos/:id', function(req, res){
+//     var result = {};
+//     conn.query('SELECT * FROM todos WHERE id =' + '\'' + req.params.id + '\'', function(err, rows){
+//         if(err) {
+//             console.log("PARA", err); 
+//         } else {
+//             result = rows;
+//             console.log(result);
+//             }
+//         res.send(result);
+//     })
+// });
 
 
 app.put('/todos/:id', function(req, res){
     var result = {};
+    var done = req.body.done;
+    var id = req.params.id;
 
-    conn.query('UPDATE todos SET done ="' + req.body.done +'" WHERE id="' + req.params.id + '"', function(err, rows){
+    conn.query('UPDATE todos SET done = ? WHERE id= ?', [done, id], function(err, rows){
         conn.query('SELECT * FROM todos', function(err, rows){
             if(err) {
                 console.log("PARA", err); 
@@ -77,6 +79,23 @@ app.put('/todos/:id', function(req, res){
         })
     })
 });
+// 
+// 
+// app.put('/todos/:id', function(req, res){
+//     var result = {};
+// 
+//     conn.query('UPDATE todos SET done ="' + req.body.done +'" WHERE id="' + req.params.id + '"', function(err, rows){
+//         conn.query('SELECT * FROM todos', function(err, rows){
+//             if(err) {
+//                 console.log("PARA", err); 
+//             } else {
+//                 result = rows;
+//                 console.log(result);
+//             }
+//             res.send(result);
+//         })
+//     })
+// });
 
 
 
