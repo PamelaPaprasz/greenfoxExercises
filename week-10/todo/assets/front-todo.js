@@ -52,6 +52,35 @@ addButton.addEventListener('click', function(){
 
 
 
+function putToServer(clickedItem){
+	var xhr = new XMLHttpRequest();
+	
+	xhr.open('PUT', 'http://localhost:3000/todos/' + clickedItem[0].id, true);
+	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr.setRequestHeader('Accept', 'application/json');
+	
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState === 4 && xhr.status === 200){
+			var requestedData = JSON.parse(xhr.response);
+			createTodos(requestedData);
+		}
+	}
+	
+	if (clickedItem[0].done === 0){
+		var data = {
+			done: 1
+		}
+	} else {
+		var data = {
+			done: 0
+		}
+	}
+	xhr.send(JSON.stringify(data));
+};
+
+
+
+
 function createTodos(serverData) {
 	todoList.innerHTML = '';
 	
@@ -66,7 +95,11 @@ function createTodos(serverData) {
         singleTodo.appendChild(boxOfTodoText);
 		
         var todoTitle = document.createElement('div');
-        todoTitle.setAttribute('class', 'todo-title');
+		if (element.done === 0){
+			todoTitle.setAttribute('class', 'todo-title');
+        } else {
+            todoTitle.setAttribute('class', 'checked-title');        
+        }
         todoTitle.innerHTML = element.title;
         boxOfTodoText.appendChild(todoTitle);
         
@@ -93,7 +126,7 @@ function createTodos(serverData) {
 		})
         
         checkBox.addEventListener('click', function(){
-            ajax('http://localhost:3000/todos/' + checkBox.id, 'GET', createTodos);
+            ajax('http://localhost:3000/todos/' + checkBox.id, 'GET', putToServer)
         })
     });
     
