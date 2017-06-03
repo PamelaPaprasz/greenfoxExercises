@@ -43,6 +43,14 @@ h2 {
     justify-content: space-between;
 }
 
+.todo-title {
+    color: #EB01A5;
+}
+
+.checked-title {
+    color: #ABACAB;
+}
+
 .icon-box {
     display: flex;
     justify-content: flex-end;
@@ -76,4 +84,8 @@ h2 {
     background-repeat: no-repeat;
     width: 30px;
     height: 30px;
+}
+
+.checked-box:hover {
+    cursor: pointer;
 }
