@@ -4,7 +4,6 @@ function summMatrix(matrix) {
   var list1 = matrix[0];
   var list2 = matrix[1];
   var summAll = 0;
-  var arr = []
 
   // for (var i = 0; i < list1.length; i++){
   //   summAlll += list1[i]
@@ -21,4 +20,4 @@ function summMatrix(matrix) {
   }
   return summAll;
 }
-console.log(summMatrix([[1, 2, 3], [5, 6]]))
+console.log(summMatrix([[1, 2, 3], [5, 6], [1, 2, 3]]))
